@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//
 public class bossmove : MonoBehaviour
 {
     public float speed = 2.0f;
     public float rotationSpeed = 5.0f;
+    public bool yo;
     public float punchCooldown = 2.0f;
     public float jumpCooldown = 4.0f;
 
