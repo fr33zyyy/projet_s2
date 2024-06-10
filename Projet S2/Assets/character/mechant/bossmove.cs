@@ -4,54 +4,137 @@ using UnityEngine;
 
 public class bossmove : MonoBehaviour
 {
-    // Vitesse de déplacement en unités par seconde
     public float speed = 2.0f;
-
-    // Vitesse de rotation
     public float rotationSpeed = 5.0f;
+    public float punchCooldown = 2.0f;
+    public float jumpCooldown = 4.0f;
 
-    // Référence au GameObject du joueur
     private GameObject player;
-
-    // Référence au Rigidbody du personnage
     private Rigidbody rb;
+    private Animator animator;
+
+    private enum State
+    {
+        Idle,
+        Moving,
+        Punching,
+        Jumping
+    }
+
+    private State currentState;
+    private float stateTimer;
+    private float punchTimer;
+    private float jumpTimer;
 
     void Start()
     {
-        // Trouve le GameObject avec le tag "Player"
         player = GameObject.FindGameObjectWithTag("Player");
-
-        // Récupère le Rigidbody attaché au GameObject
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+
+        currentState = State.Idle;
+        stateTimer = 0f;
+        punchTimer = 0f;
+        jumpTimer = 0f;
     }
 
     void Update()
     {
-        // Vérifie si le joueur a été trouvé
         if (player != null)
         {
-            // Calcule la direction vers la position du joueur
-            Vector3 direction = (player.transform.position - transform.position).normalized;
+            stateTimer -= Time.deltaTime;
+            punchTimer -= Time.deltaTime;
+            jumpTimer -= Time.deltaTime;
 
-            // Ignore la hauteur en ajustant les composantes y à 0
-            direction.y = 0;
-
-            // Calcule le déplacement nécessaire
-            Vector3 movement = direction * speed * Time.deltaTime;
-
-            // Applique le déplacement au Rigidbody
-            rb.MovePosition(transform.position + movement);
-
-            // Calcule la rotation vers le joueur en ignorant la hauteur
-            Vector3 lookDirection = player.transform.position - transform.position;
-            lookDirection.y = 0; // Ignore la hauteur
-
-            if (lookDirection != Vector3.zero) // Vérifie que la direction n'est pas nulle
+            switch (currentState)
             {
-                Quaternion toRotation = Quaternion.LookRotation(lookDirection);
-                // Applique la rotation au GameObject
-                transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+                case State.Idle:
+                    animator.SetBool("IsMooving", false);
+                    animator.SetBool("IsJumping", false);
+                    animator.SetBool("IsAttacking", false);
+
+                    if (stateTimer <= 0f)
+                    {
+                        currentState = State.Moving;
+                        stateTimer = Random.Range(1f, 3f); // Random moving duration
+                    }
+                    break;
+
+                case State.Moving:
+                    MoveTowardsPlayer();
+
+                    if (stateTimer <= 0f)
+                    {
+                        currentState = State.Idle;
+                        stateTimer = Random.Range(1f, 2f); // Random idle duration
+                    }
+
+                    if (punchTimer <= 0f)
+                    {
+                        currentState = State.Punching;
+                        stateTimer = 1f; // Punch duration
+                    }
+
+                    if (jumpTimer <= 0f)
+                    {
+                        currentState = State.Jumping;
+                        stateTimer = 1f; // Jump duration
+                    }
+                    break;
+
+                case State.Punching:
+                    Punch();
+                    if (stateTimer <= 0f)
+                    {
+                        currentState = State.Idle;
+                        punchTimer = punchCooldown;
+                    }
+                    break;
+
+                case State.Jumping:
+                    Jump();
+                    if (stateTimer <= 0f)
+                    {
+                        currentState = State.Idle;
+                        jumpTimer = jumpCooldown;
+                    }
+                    break;
             }
         }
+    }
+
+    void MoveTowardsPlayer()
+    {
+        Vector3 direction = (player.transform.position - transform.position).normalized;
+        direction.y = 0;
+        Vector3 movement = direction * speed * Time.deltaTime;
+        rb.MovePosition(transform.position + movement);
+
+        Vector3 lookDirection = player.transform.position - transform.position;
+        lookDirection.y = 0;
+
+        if (lookDirection != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(lookDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
+
+        animator.SetBool("IsMooving", true);
+    }
+
+    void Punch()
+    {
+        animator.SetBool("IsMooving", false);
+        animator.SetBool("IsJumping", false);
+        animator.SetBool("IsAttacking", true);
+        // Logique d'attaque au coup de poing ici
+    }
+
+    void Jump()
+    {
+        animator.SetBool("IsMooving", false);
+        animator.SetBool("IsJumping", true);
+        animator.SetBool("IsAttacking", false);
+        // Logique de saut vers le joueur ici
     }
 }
