@@ -55,8 +55,6 @@ public class BossMove : MonoBehaviour
                 if(jumpTimer < 0){
                     currentState = State.Jumping;
                     punchi = 3.7f;
-                    animator.SetBool("IsJumping", true);
-                    animator.SetBool("IsMooving", false);
                     // Capture de la direction du saut
                     jumpDirection = (player.transform.position - transform.position).normalized;
                     jumpDirection.y = 0;
@@ -81,8 +79,6 @@ public class BossMove : MonoBehaviour
                 if(jumpTimer < 0 && Vector3.Distance(transform.position, player.transform.position) < 10.0f){
                     currentState = State.Jumping;
                     punchi = 3.7f;
-                    animator.SetBool("IsJumping", true);
-                    animator.SetBool("IsMooving", false);
                     // Capture de la direction du saut
                     jumpDirection = (player.transform.position - transform.position).normalized;
                     jumpDirection.y = 0;
@@ -114,8 +110,8 @@ public class BossMove : MonoBehaviour
 
             case State.Jumping:
                 // Do nothing, just let the animation play
-                animator.SetBool("IsJumping", false);
-                animator.SetBool("IsMooving", true);
+                animator.SetBool("IsJumping", true);
+                animator.SetBool("IsMooving", false);
                 punchi -= Time.deltaTime;
                 if (punchi>2.0f){
                     transform.position += jumpDirection * jumpForce * Time.deltaTime/3 ;
