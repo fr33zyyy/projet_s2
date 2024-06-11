@@ -6,9 +6,11 @@ public class DebutDialogueFlower : MonoBehaviour
 {
     public Dialogue dialogueScript;
     public Transform InteractorSource;
+    public Animator animator;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
     }
 
   
@@ -16,7 +18,7 @@ public class DebutDialogueFlower : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            dialogueScript.StartDialogue();
+            dialogueScript.StartDialogue("NPC2");
         }
     }
 
