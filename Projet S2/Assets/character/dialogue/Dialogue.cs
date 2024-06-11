@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Dialogue : MonoBehaviour
 {
@@ -84,7 +85,11 @@ public class Dialogue : MonoBehaviour
 
     public void minijeu()
     {
-        Debug.Log("lancement du mini jeu");
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        SceneData.previousScene = SceneManager.GetActiveScene().name;
+        // Charger la scène spécifiée
+        SceneManager.LoadScene("titac ai");
     }
     
 }
