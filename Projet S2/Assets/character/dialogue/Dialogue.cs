@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
@@ -11,22 +12,31 @@ public class Dialogue : MonoBehaviour
     public string[] lines;
     public float textspeed;
     public int index;
+    public GameObject fleurs;
+    public GameObject damefleur;
+    public GameObject ancien;
+    public GameObject hommeTictac;
+    public GameObject CompteurFlower;
 
     // Variable to hold the current NPC identifier
     public string currentNpc;
      public List<string> npcsWithMinigame;
     // List of NPCs that should launch the mini-game
+    public List<string> npcsFlower;
 
     public void Start()
     {
-        if(!SceneData.ajouertictac){
-            PlayerPrefs.DeleteKey("MiniGameResult");;
+        if(PlayerPrefs.GetInt("MiniGameResult", 0) == 1){
+            GestionTicTac.agagne = true;
         }
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         gameObject.SetActive(false);
         textComponent.text = string.Empty;
 
         // Initialize the list of NPCs that should launch the mini-game
         npcsWithMinigame = new List<string> { "NPC3" };
+        npcsFlower = new List<string>{"NPC2"};
     }
 
     public void Update()
@@ -74,9 +84,28 @@ public class Dialogue : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
-            if (ShouldLaunchMinigame(currentNpc))
+            if (ShouldLaunchMinigame(currentNpc) && !GestionTicTac.agagne)
             {
                 minijeu();
+            }
+            if(ShouldFlower(currentNpc)){
+                StartFlowerQ();
+                GestionFlower.vu = true;
+            }
+            if (GestionFlower.vu && GestionFlower.complet && ShouldFlower(currentNpc)){
+                CompteurFlower.SetActive(false);
+                damefleur.SetActive(false);
+                hommeTictac.SetActive(true);
+                GestionGeneral.Flower = true;
+            }
+            if(currentNpc == "NPC1"){
+                GestionGeneral.parlerancien = true;
+                damefleur.SetActive(true);
+                ancien.SetActive(false);
+            }
+            if(currentNpc == "NPC3" && GestionTicTac.agagne){
+                hommeTictac.SetActive(false);
+                GestionGeneral.MorpionQuete = true;
             }
         }
     }
@@ -86,15 +115,22 @@ public class Dialogue : MonoBehaviour
     {
         return npcsWithMinigame.Contains(npc);
     }
+    private bool ShouldFlower(string npc){
+        return npcsFlower.Contains(npc);
+    }
 
     public void minijeu()
     {
-        Debug.Log(PlayerPrefs.GetInt("MiniGameResult", -1));
+        
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         SceneData.previousScene = SceneManager.GetActiveScene().name;
+        GestionTicTac.ajoue = true;
         // Charger la scène spécifiée
         SceneManager.LoadScene("titac ai");
     }
-    
+    public void StartFlowerQ(){
+        fleurs.SetActive(true);
+        CompteurFlower.SetActive(true);
+    }
 }

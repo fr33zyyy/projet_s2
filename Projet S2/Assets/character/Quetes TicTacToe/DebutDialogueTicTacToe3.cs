@@ -2,23 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DebutDialogueFlower : MonoBehaviour
+public class DebutDialogueTicTacToe3 : MonoBehaviour
 {
     public Dialogue dialogueScript;
     public Transform InteractorSource;
     public Animator animator;
 
+
+
     private void Start()
     {
         animator = GetComponent<Animator>();
+        
     }
 
   
-    public void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other) 
     {
-        if (other.CompareTag("Player") && !GestionFlower.vu)
+        if (other.CompareTag("Player") && GestionTicTac.ajoue && GestionTicTac.agagne)
         {
-            dialogueScript.StartDialogue("NPC2");
+            dialogueScript.StartDialogue("NPC3");
         }
     }
 

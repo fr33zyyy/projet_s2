@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DebutDialogueFlower : MonoBehaviour
+public class DebutDialogueFlower3 : MonoBehaviour
 {
     public Dialogue dialogueScript;
     public Transform InteractorSource;
@@ -16,7 +16,7 @@ public class DebutDialogueFlower : MonoBehaviour
   
     public void OnTriggerEnter(Collider other) 
     {
-        if (other.CompareTag("Player") && !GestionFlower.vu)
+        if (other.CompareTag("Player") && GestionFlower.vu && GestionFlower.complet)
         {
             dialogueScript.StartDialogue("NPC2");
         }

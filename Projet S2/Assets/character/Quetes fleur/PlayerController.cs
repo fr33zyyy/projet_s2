@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public int flowerpicked = 0;
+    public Text Flowercompt;
     public float pickupDistance = 2f; // Distance à partir de laquelle le joueur peut ramasser une fleur
-
+    void Start(){
+        Flowercompt.text = "Fleur";
+    }
     void Update()
     {
         // Vérifier si le joueur appuie sur un bouton pour ramasser une fleur
@@ -24,7 +30,13 @@ public class PlayerController : MonoBehaviour
                 {
                     flower.Pickup(); // Ramasser la fleur
                     Debug.Log("Fleur ramassée !");
+                    flowerpicked += 1;
+                    Flowercompt.text = "Fleurs: " + flowerpicked;
+                    if(flowerpicked >= 10){
+                        GestionFlower.complet = true;
+                    }
                 }
+                
             }
         }
     }
