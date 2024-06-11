@@ -9,6 +9,7 @@ public class BossMove : MonoBehaviour
     public float jumpCooldown = 4.0f;
     public float jumpForce = 10.0f; // Force du saut
     public float punchi;
+    
 
     private GameObject player;
     private Animator animator;
@@ -39,12 +40,44 @@ public class BossMove : MonoBehaviour
     private void Update()
     {
         switch (currentState)
-        {
+        {   
+            case State.Idle:
+                punchTimer -= Time.deltaTime;
+                jumpTimer -= Time.deltaTime;
+                Vector3 lookDirection = player.transform.position - transform.position;
+            lookDirection.y = 0;
+
+            if (lookDirection != Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(lookDirection);
+                transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            }
+                if(jumpTimer < 0){
+                    currentState = State.Jumping;
+                    punchi = 3.7f;
+                    animator.SetBool("IsJumping", true);
+                    animator.SetBool("IsMooving", false);
+                    // Capture de la direction du saut
+                    jumpDirection = (player.transform.position - transform.position).normalized;
+                    jumpDirection.y = 0;
+                }
+                if(Vector3.Distance(transform.position, player.transform.position) > 5.0f){
+                    animator.SetBool("IsMooving", true);
+                    currentState = State.Moving;
+                }
+                if (punchTimer <= 0)
+                {
+                    currentState = State.Punching;
+                    punchi = 2.667f;
+                    animator.SetBool("IsAttacking", true);
+                    animator.SetBool("IsMooving", false);
+                }
+                
+                break;
             case State.Moving:
                 MoveTowardsPlayer();
                 punchTimer -= Time.deltaTime;
                 jumpTimer -= Time.deltaTime;
-                Debug.Log("time jump = " + jumpTimer + "time punch = " + punchTimer);
                 if(jumpTimer < 0 && Vector3.Distance(transform.position, player.transform.position) < 10.0f){
                     currentState = State.Jumping;
                     punchi = 3.7f;
@@ -53,6 +86,10 @@ public class BossMove : MonoBehaviour
                     // Capture de la direction du saut
                     jumpDirection = (player.transform.position - transform.position).normalized;
                     jumpDirection.y = 0;
+                }
+                if(Vector3.Distance(transform.position, player.transform.position) < 5.0f){
+                    animator.SetBool("IsMooving", false);
+                    currentState = State.Idle;
                 }
                 if (punchTimer <= 0)
                 {
@@ -80,11 +117,16 @@ public class BossMove : MonoBehaviour
                 animator.SetBool("IsJumping", false);
                 animator.SetBool("IsMooving", true);
                 punchi -= Time.deltaTime;
+                if (punchi>2.0f){
+                    transform.position += jumpDirection * jumpForce * Time.deltaTime/3 ;
+                }
+                
                 if (punchi <= 0){
                     punchTimer = punchCooldown;
                     jumpTimer = jumpCooldown;
                     currentState = State.Moving;
                 }
+                
                 break;
 
             default:
@@ -112,13 +154,6 @@ public class BossMove : MonoBehaviour
             }
         }
     }
-
-    private void FixedUpdate()
-    {
-        // Appliquer le saut
-        if (currentState == State.Jumping)
-        {
-            transform.position += jumpDirection * jumpForce * Time.deltaTime/3;
-        }
-    }
+   
+    
 }
