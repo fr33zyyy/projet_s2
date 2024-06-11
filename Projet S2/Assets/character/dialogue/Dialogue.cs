@@ -3,8 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+<<<<<<< HEAD
+=======
 using System;
+<<<<<<< HEAD
 using UnityEngine.UI;
+=======
+>>>>>>> 1c7cdca318f09deeb88e503c810615cf119934fd
+>>>>>>> 839cfcd55b277d0200f5470a1ad53838a6882a26
 
 public class Dialogue : MonoBehaviour
 {
@@ -26,11 +32,21 @@ public class Dialogue : MonoBehaviour
 
     public void Start()
     {
+<<<<<<< HEAD
         if(PlayerPrefs.GetInt("MiniGameResult", 0) == 1){
             GestionTicTac.agagne = true;
         }
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+=======
+<<<<<<< HEAD
+        
+=======
+        if(!SceneData.ajouertictac){
+            PlayerPrefs.DeleteKey("MiniGameResult");;
+        }
+>>>>>>> 1c7cdca318f09deeb88e503c810615cf119934fd
+>>>>>>> 839cfcd55b277d0200f5470a1ad53838a6882a26
         gameObject.SetActive(false);
         textComponent.text = string.Empty;
 
@@ -121,13 +137,24 @@ public class Dialogue : MonoBehaviour
 
     public void minijeu()
     {
+<<<<<<< HEAD
         
+=======
+<<<<<<< HEAD
+        SceneData.previousScene = SceneManager.GetActiveScene().name;
+        Debug.Log(SceneData.previousScene);
+        SceneManager.LoadScene("lobby-solo");
+        Debug.Log(SceneData.previousScene);
+=======
+        Debug.Log(PlayerPrefs.GetInt("MiniGameResult", -1));
+>>>>>>> 839cfcd55b277d0200f5470a1ad53838a6882a26
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         SceneData.previousScene = SceneManager.GetActiveScene().name;
         GestionTicTac.ajoue = true;
         // Charger la scène spécifiée
         SceneManager.LoadScene("titac ai");
+>>>>>>> 1c7cdca318f09deeb88e503c810615cf119934fd
     }
     public void StartFlowerQ(){
         fleurs.SetActive(true);
