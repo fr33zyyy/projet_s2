@@ -14,7 +14,7 @@ public class DebutDialogue : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        
+        dialogueScript.lines[0] = "Bonjour " + GestionGeneral.Name +", Je suis heureux de te rencontrer.";
     }
 
   

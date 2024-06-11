@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/firstlobby.unity
+    guid: b9c1f3cbff738894f9359ea5457df183
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
@@ -35,4 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/waittic.unity
     guid: 7dfd47dc8b9484dd79d8636d8603a9e5
+  - enabled: 1
+    path: Assets/Scenes/transi.unity
+    guid: bcc26737503763641a8bbe8e388d6e8f
   m_configObjects: {}
