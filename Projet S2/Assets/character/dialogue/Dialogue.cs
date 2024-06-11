@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Dialogue : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Dialogue : MonoBehaviour
 
     public void Start()
     {
+        
         gameObject.SetActive(false);
         textComponent.text = string.Empty;
 
@@ -84,7 +86,10 @@ public class Dialogue : MonoBehaviour
 
     public void minijeu()
     {
-        Debug.Log("lancement du mini jeu");
+        SceneData.previousScene = SceneManager.GetActiveScene().name;
+        Debug.Log(SceneData.previousScene);
+        SceneManager.LoadScene("lobby-solo");
+        Debug.Log(SceneData.previousScene);
     }
     
 }
