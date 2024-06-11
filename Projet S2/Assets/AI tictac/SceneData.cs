@@ -5,4 +5,5 @@ using UnityEngine;
 public static class SceneData
 {
     public static string previousScene;
+    public static bool ajouertictac = false;
 }

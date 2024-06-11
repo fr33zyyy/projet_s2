@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+<<<<<<< HEAD
+=======
+using System;
+>>>>>>> 1c7cdca318f09deeb88e503c810615cf119934fd
 
 public class Dialogue : MonoBehaviour
 {
@@ -18,7 +22,13 @@ public class Dialogue : MonoBehaviour
 
     public void Start()
     {
+<<<<<<< HEAD
         
+=======
+        if(!SceneData.ajouertictac){
+            PlayerPrefs.DeleteKey("MiniGameResult");;
+        }
+>>>>>>> 1c7cdca318f09deeb88e503c810615cf119934fd
         gameObject.SetActive(false);
         textComponent.text = string.Empty;
 
@@ -86,10 +96,19 @@ public class Dialogue : MonoBehaviour
 
     public void minijeu()
     {
+<<<<<<< HEAD
         SceneData.previousScene = SceneManager.GetActiveScene().name;
         Debug.Log(SceneData.previousScene);
         SceneManager.LoadScene("lobby-solo");
         Debug.Log(SceneData.previousScene);
+=======
+        Debug.Log(PlayerPrefs.GetInt("MiniGameResult", -1));
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        SceneData.previousScene = SceneManager.GetActiveScene().name;
+        // Charger la scène spécifiée
+        SceneManager.LoadScene("titac ai");
+>>>>>>> 1c7cdca318f09deeb88e503c810615cf119934fd
     }
     
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class MediumAI : MonoBehaviour
+public class MediumAI 
 {
     private string[,] grid; // Grille du morpion
     private string playerSymbol; // Symbole du joueur
