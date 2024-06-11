@@ -8,7 +8,7 @@ using Cursor = UnityEngine.Cursor;
 
 public class move : MonoBehaviour
 {
-    [SerializeField]
+[SerializeField]
 private float rotationSpeed;
 
 [SerializeField]
@@ -34,6 +34,8 @@ private float? lastGroundedTime;
 private float? jumpButtonPressedTime;
 private bool isJumping;
 private bool isGrounded;
+
+
 
 // Start is called before the first frame update
 void Start()
