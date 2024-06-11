@@ -8,6 +8,13 @@ public class ButtonleavetictacAI : MonoBehaviour
     public void LoadScene()
     {
         // Charger la scène spécifiée
-        SceneManager.LoadScene("lobby-solo");
+        if (!string.IsNullOrEmpty(SceneData.previousScene))
+            {
+                SceneManager.LoadScene(SceneData.previousScene);
+            }
+            else
+            {
+                Debug.LogWarning("Previous scene not set.");
+            }
     }
 }

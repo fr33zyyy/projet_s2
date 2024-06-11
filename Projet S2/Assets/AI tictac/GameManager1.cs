@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Threading;
+using UnityEngine.SceneManagement;
 
 public class GameManager1 : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class GameManager1 : MonoBehaviour
     public Text AIwin;
     private int joueurw = 0;
     private int AIw = 0;
+    public GameObject endingpan;
+    public Text winingtext;
     public List<Button> buttons;
         void Start(){
     managetext.text = "Player \"" + GetcurrenPlayer() + "\"'s turn";
@@ -39,19 +42,44 @@ public class GameManager1 : MonoBehaviour
     }
 
     public void UptdateGrid(int ligne, int colonne, string symbol){
+        if(AIw>=5 || joueurw>=5 ){
+            endingpan.SetActive(true);
+            if(joueurw<5){
+                winingtext.text = "perdu";
+            }
+            else{
+                winingtext.text = "win";
+            }
+        }
+        else{
         grid[ligne,colonne] = symbol;
         if (CheckForWin(grid,GetcurrenPlayer())){
 
             managetext.text = "Player \"" + GetcurrenPlayer() + "\" win!";
             if(playerturn){
                 joueurw += 1;
-                joueurwin.text = "Your :" + joueurw;
+                
             }
             else{
                 AIw += 1;
                 AIwin.text = "AI :" + AIw;
             }
-            
+            if(AIw>=5 || joueurw>=5 ){
+            endingpan.SetActive(true);
+            if(joueurw<5){
+                winingtext.text = "perdu";
+                PlayerPrefs.SetInt("MiniGameResult",  0);
+                // Sauvegarder les changements
+                PlayerPrefs.Save();
+            }
+            else{
+                winingtext.text = "win";
+                joueurwin.text = "Your :" + joueurw;
+                PlayerPrefs.SetInt("MiniGameResult",  1);
+                // Sauvegarder les changements
+                PlayerPrefs.Save();
+            }
+        }
             for(int i = 0; i<3;i++){
             for (int j = 0;j<3;j++){
                 isuse[i,j] = false;
@@ -129,7 +157,7 @@ public class GameManager1 : MonoBehaviour
             
             
         }
-    }
+    }}
     public bool Draw(string[,] grid){
         foreach (var item in grid)
         {
