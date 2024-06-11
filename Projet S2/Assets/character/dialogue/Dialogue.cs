@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Dialogue : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class Dialogue : MonoBehaviour
 
     public void Start()
     {
+        if(!SceneData.ajouertictac){
+            PlayerPrefs.DeleteKey("MiniGameResult");;
+        }
         gameObject.SetActive(false);
         textComponent.text = string.Empty;
 
@@ -85,6 +89,7 @@ public class Dialogue : MonoBehaviour
 
     public void minijeu()
     {
+        Debug.Log(PlayerPrefs.GetInt("MiniGameResult", -1));
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         SceneData.previousScene = SceneManager.GetActiveScene().name;

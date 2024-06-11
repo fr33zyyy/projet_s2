@@ -22,6 +22,7 @@ public class GameManager1 : MonoBehaviour
     public Text winingtext;
     public List<Button> buttons;
         void Start(){
+            SceneData.ajouertictac = true;
     managetext.text = "Player \"" + GetcurrenPlayer() + "\"'s turn";
     for(int i = 0; i<3;i++){
         for (int j = 0;j<3;j++){
@@ -44,12 +45,6 @@ public class GameManager1 : MonoBehaviour
     public void UptdateGrid(int ligne, int colonne, string symbol){
         if(AIw>=5 || joueurw>=5 ){
             endingpan.SetActive(true);
-            if(joueurw<5){
-                winingtext.text = "perdu";
-            }
-            else{
-                winingtext.text = "win";
-            }
         }
         else{
         grid[ligne,colonne] = symbol;
@@ -58,7 +53,7 @@ public class GameManager1 : MonoBehaviour
             managetext.text = "Player \"" + GetcurrenPlayer() + "\" win!";
             if(playerturn){
                 joueurw += 1;
-                
+                joueurwin.text = "Player :" + joueurw;
             }
             else{
                 AIw += 1;
@@ -68,7 +63,7 @@ public class GameManager1 : MonoBehaviour
             endingpan.SetActive(true);
             if(joueurw<5){
                 winingtext.text = "perdu";
-                PlayerPrefs.SetInt("MiniGameResult",  0);
+                PlayerPrefs.SetInt("MiniGameResult", PlayerPrefs.GetInt("MiniGameResult", 0));
                 // Sauvegarder les changements
                 PlayerPrefs.Save();
             }
@@ -147,7 +142,6 @@ public class GameManager1 : MonoBehaviour
             Switchplayer();
             isuse[b,c] = true;
             texts[b*3+c].text = "O";
-            Debug.Log(b + "  "+ c);
             UptdateGrid(b,c,"O");
             
             
