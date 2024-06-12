@@ -11,4 +11,5 @@ public static class GestionGeneral
     public static bool MorpionQuete = false;
     public static bool ChercheCode = false;
     public static bool CodeQuete = false;
+    public static bool Map2 = false;
 }

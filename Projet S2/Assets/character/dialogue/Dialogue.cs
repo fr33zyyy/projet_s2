@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using System;
 using UnityEngine.UI;
 using Photon.Realtime;
+using Unity.VisualScripting;
 
 public class Dialogue : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class Dialogue : MonoBehaviour
     public move scriptMove;
     public Dashing dashing;
     public InputField inputFieldcode;
+    public Image pierre1;
+     public Image pierre2;
+      public Image pierre3;
     
      
     public GameObject reponsecode;
@@ -48,6 +52,7 @@ public class Dialogue : MonoBehaviour
         // Initialize the list of NPCs that should launch the mini-game
         npcsWithMinigame = new List<string> { "NPC3" };
         npcsFlower = new List<string>{"NPC2"};
+        
     }
 
     public void Update()
@@ -99,25 +104,32 @@ public class Dialogue : MonoBehaviour
             {
                 minijeu();
             }
-            if(ShouldFlower(currentNpc)){
+            if(ShouldFlower(currentNpc) && !GestionGeneral.ChercheCode){
                 StartFlowerQ();
                 GestionFlower.vu = true;
             }
             if (GestionFlower.vu && GestionFlower.complet && ShouldFlower(currentNpc)){
                 CompteurFlower.SetActive(false);
                 damefleur.SetActive(false);
-                hommeTictac.SetActive(true);
                 GestionGeneral.Flower = true;
+                if(GestionGeneral.MorpionQuete){
+                    hommecode.SetActive(true);
+                }
             }
-            if(currentNpc == "NPC1"){
+            if(currentNpc == "NPC1" && !GestionGeneral.ChercheCode){
                 GestionGeneral.parlerancien = true;
+                pierre1.color = Color.white;
                 damefleur.SetActive(true);
+                hommeTictac.SetActive(true);
                 ancien.SetActive(false);
+                dashing.enabled = true;
             }
             if(currentNpc == "NPC3" && GestionTicTac.agagne){
                 hommeTictac.SetActive(false);
-                hommecode.SetActive(true);
                 GestionGeneral.MorpionQuete = true;
+                if(GestionFlower.complet){
+                    hommecode.SetActive(true);
+                }
             }
             if(currentNpc == "NPC4" && !Codegestion.vu){
                 Codegestion.vu = true;
@@ -133,6 +145,15 @@ public class Dialogue : MonoBehaviour
                 scriptMove.enabled = false;
                 dashing.enabled = false;
                 inputFieldcode.text = "";
+            }
+            if(currentNpc == "NPC5"){
+                ancien.SetActive(false);
+                damefleur.SetActive(false);
+                hommecode.SetActive(false);
+                hommeTictac.SetActive(false);
+                Codegestion.reussi = true;
+                GestionGeneral.ChercheCode = false;
+                GestionGeneral.CodeQuete = true;
             }
         }
     }

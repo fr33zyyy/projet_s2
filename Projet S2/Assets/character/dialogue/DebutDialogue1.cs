@@ -1,24 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class DebutDialogueFlower : MonoBehaviour
+public class DebutDialogue1 : MonoBehaviour
 {
     public Dialogue dialogueScript;
     public Transform InteractorSource;
     public Animator animator;
 
+
+
     private void Start()
     {
         animator = GetComponent<Animator>();
-    }
+        }
 
   
-    public void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other) 
     {
-        if (other.CompareTag("Player") && !GestionFlower.vu && !GestionGeneral.ChercheCode)
+        if (other.CompareTag("Player") && GestionGeneral.ChercheCode )
         {
-            dialogueScript.StartDialogue("NPC2");
+            animator.SetBool("IsTalking", true);
+            dialogueScript.StartDialogue("NPC1");
         }
     }
 
@@ -26,6 +30,7 @@ public class DebutDialogueFlower : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            animator.SetBool("IsTalking", false);
             dialogueScript.Start(); 
         }
     }
