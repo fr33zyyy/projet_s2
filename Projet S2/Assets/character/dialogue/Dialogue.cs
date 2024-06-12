@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using System;
 using UnityEngine.UI;
 using Photon.Realtime;
+using Unity.VisualScripting;
 
 public class Dialogue : MonoBehaviour
 {
@@ -95,11 +96,11 @@ public class Dialogue : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
-            if (ShouldLaunchMinigame(currentNpc) && !GestionTicTac.agagne)
+            if (ShouldLaunchMinigame(currentNpc) && !GestionTicTac.agagne && !GestionGeneral.ChercheCode)
             {
                 minijeu();
             }
-            if(ShouldFlower(currentNpc)){
+            if(ShouldFlower(currentNpc) && !GestionGeneral.ChercheCode){
                 StartFlowerQ();
                 GestionFlower.vu = true;
             }
@@ -109,7 +110,7 @@ public class Dialogue : MonoBehaviour
                 hommeTictac.SetActive(true);
                 GestionGeneral.Flower = true;
             }
-            if(currentNpc == "NPC1"){
+            if(currentNpc == "NPC1" && !GestionGeneral.ChercheCode){
                 GestionGeneral.parlerancien = true;
                 damefleur.SetActive(true);
                 ancien.SetActive(false);
@@ -133,6 +134,15 @@ public class Dialogue : MonoBehaviour
                 scriptMove.enabled = false;
                 dashing.enabled = false;
                 inputFieldcode.text = "";
+            }
+            if(currentNpc == "NPC5"){
+                ancien.SetActive(false);
+                damefleur.SetActive(false);
+                hommecode.SetActive(false);
+                hommeTictac.SetActive(false);
+                Codegestion.reussi = true;
+                GestionGeneral.ChercheCode = false;
+                GestionGeneral.CodeQuete = true;
             }
         }
     }

@@ -20,7 +20,7 @@ public class DebutDialogue : MonoBehaviour
   
     private void OnTriggerEnter(Collider other) 
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !GestionGeneral.ChercheCode)
         {
             animator.SetBool("IsTalking", true);
             dialogueScript.StartDialogue("NPC1");
