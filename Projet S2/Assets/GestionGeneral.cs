@@ -9,4 +9,6 @@ public static class GestionGeneral
     public static bool parlerancien = false;
     public static bool Flower = false;
     public static bool MorpionQuete = false;
+    public static bool ChercheCode = false;
+    public static bool CodeQuete = false;
 }

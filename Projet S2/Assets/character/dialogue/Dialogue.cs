@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using System;
 using UnityEngine.UI;
+using Photon.Realtime;
 
 public class Dialogue : MonoBehaviour
 {
@@ -12,6 +13,13 @@ public class Dialogue : MonoBehaviour
     public string[] lines;
     public float textspeed;
     public int index;
+    public move scriptMove;
+    public Dashing dashing;
+    public InputField inputFieldcode;
+    
+     
+    public GameObject reponsecode;
+    public GameObject hommecode;
     public GameObject fleurs;
     public GameObject damefleur;
     public GameObject ancien;
@@ -108,7 +116,23 @@ public class Dialogue : MonoBehaviour
             }
             if(currentNpc == "NPC3" && GestionTicTac.agagne){
                 hommeTictac.SetActive(false);
+                hommecode.SetActive(true);
                 GestionGeneral.MorpionQuete = true;
+            }
+            if(currentNpc == "NPC4" && !Codegestion.vu){
+                Codegestion.vu = true;
+                GestionGeneral.ChercheCode = true;
+                ancien.SetActive(true);
+                damefleur.SetActive(true);
+                hommeTictac.SetActive(true);
+            }
+            else if (currentNpc == "NPC4" && Codegestion.vu){
+                reponsecode.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                scriptMove.enabled = false;
+                dashing.enabled = false;
+                inputFieldcode.text = "";
             }
         }
     }
