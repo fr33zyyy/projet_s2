@@ -64,11 +64,22 @@ void Update()
     movementDirection = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles.y, Vector3.up) * movementDirection;
     movementDirection.Normalize();
 
-    ySpeed += Physics.gravity.y * Time.deltaTime;
-
     if (characterController.isGrounded)
     {
         lastGroundedTime = Time.time;
+        ySpeed = -0.5f; // Reset ySpeed when grounded
+    }
+    else
+    {
+        ySpeed += Physics.gravity.y * Time.deltaTime; // Apply gravity when not grounded
+        if (ySpeed < -2) // If falling
+        {
+            animator.SetBool("IsFalling", true);
+        }
+        else
+        {
+            animator.SetBool("IsFalling", false);
+        }
     }
 
     if (Input.GetButtonDown("Jump"))
@@ -79,7 +90,6 @@ void Update()
     if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
     {
         characterController.stepOffset = originalStepOffset;
-        ySpeed = -0.5f;
         animator.SetBool("IsGrounded", true);
         isGrounded = true;
         animator.SetBool("IsJumping", false);
