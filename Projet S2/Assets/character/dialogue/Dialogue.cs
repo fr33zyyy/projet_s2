@@ -29,6 +29,7 @@ public class Dialogue : MonoBehaviour
     public GameObject ancien;
     public GameObject hommeTictac;
     public GameObject CompteurFlower;
+    public GameObject Star;
 
     // Variable to hold the current NPC identifier
     public string currentNpc;
@@ -116,13 +117,18 @@ public class Dialogue : MonoBehaviour
                     hommecode.SetActive(true);
                 }
             }
-            if(currentNpc == "NPC1" && !GestionGeneral.ChercheCode){
+            if(currentNpc == "NPC1" && !GestionGeneral.ChercheCode && !GestionGeneral.CodeQuete){
                 GestionGeneral.parlerancien = true;
                 pierre1.color = Color.white;
                 damefleur.SetActive(true);
                 hommeTictac.SetActive(true);
                 ancien.SetActive(false);
                 dashing.enabled = true;
+            }
+            if(currentNpc == "NPC1" && GestionGeneral.CodeQuete){
+                ancien.SetActive(false);
+                Star.SetActive(true);
+                pierre2.color = Color.white;
             }
             if(currentNpc == "NPC3" && GestionTicTac.agagne){
                 hommeTictac.SetActive(false);
@@ -147,7 +153,6 @@ public class Dialogue : MonoBehaviour
                 inputFieldcode.text = "";
             }
             if(currentNpc == "NPC5"){
-                ancien.SetActive(false);
                 damefleur.SetActive(false);
                 hommecode.SetActive(false);
                 hommeTictac.SetActive(false);

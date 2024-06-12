@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class DebutDialogue : MonoBehaviour
+public class DebutDialogue2 : MonoBehaviour
 {
     public Dialogue dialogueScript;
     public Transform InteractorSource;
@@ -14,13 +14,12 @@ public class DebutDialogue : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        dialogueScript.lines[0] = "Bonjour " + GestionGeneral.Name +", Je suis heureux de te rencontrer.";
-    }
+        }
 
   
     private void OnTriggerEnter(Collider other) 
     {
-        if (other.CompareTag("Player") && !GestionGeneral.ChercheCode && !GestionGeneral.CodeQuete)
+        if (other.CompareTag("Player") && GestionGeneral.CodeQuete)
         {
             animator.SetBool("IsTalking", true);
             dialogueScript.StartDialogue("NPC1");
