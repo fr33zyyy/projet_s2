@@ -448,7 +448,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354859068}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13870122, y: 4.0920297e-30, z: 1.1447439e-31, w: 0.99033433}
+  m_LocalRotation: {x: 0.13870122, y: 1e-45, z: -0, w: 0.99033433}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -822,7 +822,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 805790892}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1206646, y: -0.000000004271687, z: 5.1923515e-10, w: 0.99269336}
+  m_LocalRotation: {x: 0.1206646, y: -0.000000004270166, z: 5.1905036e-10, w: 0.99269336}
   m_LocalPosition: {x: 2, y: 3.8, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -878,17 +878,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf02e64e36aacd45892280a26cee91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 30
-  punchRadius: 2
+  lookRadius: 20
+  punchRadius: 3.5
   jumpRadius: 10
   damageRadius: 3
-  timeBetweenPunches: 3
-  timeBetweenJumps: 10
+  timeBetweenPunches: 5
+  timeBetweenJumps: 15
   punchDamage: 20
   jumpDamage: 50
   jumpHeight: 5
   jumpDuration: 0.7
-  knockbackForce: 10
+  knockbackForce: 5
+  animator: {fileID: 884919756}
+  punchAnimationEndEventName: OnPunchAnimationEnd
 --- !u!54 &884919749
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -897,7 +899,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884919747}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 300
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -915,7 +917,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!136 &884919750
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -949,11 +951,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
-  m_Acceleration: 20
+  m_Speed: 4
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 3.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -961,6 +963,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &884919756
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884919747}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: a5dff9012feb19e41a614d92e0c542b5, type: 3}
+  m_Controller: {fileID: 9100000, guid: b6220899747e0d34b9746770a99fa10b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &914467966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,13 +1478,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mutant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: a5dff9012feb19e41a614d92e0c542b5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a5dff9012feb19e41a614d92e0c542b5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 884919753}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a5dff9012feb19e41a614d92e0c542b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 884919756}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a5dff9012feb19e41a614d92e0c542b5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 884919750}
@@ -1543,7 +1570,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417194748}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12066459, y: -0.000000004271686, z: 5.192351e-10, w: 0.99269336}
+  m_LocalRotation: {x: 0.12066459, y: -0.0000000042701656, z: 5.1905036e-10, w: 0.99269336}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2547,7 +2574,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040695392}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.10263582, y: 0.00000000428899, z: -4.4254103e-10, w: 0.994719}
+  m_LocalRotation: {x: 0.10263582, y: 0.000000004278879, z: -4.4149776e-10, w: 0.994719}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

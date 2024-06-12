@@ -6,9 +6,9 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
 
-    public float lookRadius = 10f;
-    public float punchRadius = 2f; // Rayon d'attaque pour le coup de poing
-    public float jumpRadius = 6f; // Rayon d'attaque pour le saut
+    public float lookRadius = 30f;
+    public float punchRadius = 3.5f; // Rayon d'attaque pour le coup de poing
+    public float jumpRadius = 10f; // Rayon d'attaque pour le saut
     public float damageRadius = 3f; // Rayon dans lequel les dégâts du saut sont appliqués
     public float timeBetweenPunches = 1f; // Temps entre deux coups de poing
     public float timeBetweenJumps = 5f; // Temps entre deux sauts
@@ -23,14 +23,19 @@ public class EnemyController : MonoBehaviour
     private bool alreadyAttacked;
     private bool isJumping;
 
+    public Animator animator;
+
     private Vector3 jumpStartPosition;
     private Vector3 jumpTargetPosition;
     private float jumpProgress;
+
+    public string punchAnimationEndEventName = "OnPunchAnimationEnd";
 
     void Start()
     {
         target = BossManager.Instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -47,14 +52,18 @@ public class EnemyController : MonoBehaviour
             }
             else if (distance <= jumpRadius && !alreadyAttacked && !isJumping)
             {
+                
                 JumpToTarget();
             }
 
             if (distance <= agent.stoppingDistance)
             {
+                
                 FaceTarget();
             }
+            
         }
+
 
         if (isJumping)
         {
@@ -71,8 +80,12 @@ public class EnemyController : MonoBehaviour
 
     void PunchTarget()
     {
-        // Logique du coup de poing
+    
+        
         Debug.Log("Coup de poing !");
+
+        // Déclencher l'animation de coup de poing
+        animator.SetBool("Punch", true);
 
         PlayerStats playerStats = target.GetComponent<PlayerStats>();
         if (playerStats != null)
@@ -82,18 +95,45 @@ public class EnemyController : MonoBehaviour
 
         alreadyAttacked = true;
         Invoke(nameof(ResetAttack), timeBetweenPunches);
+        
+        StartCoroutine(ResetPunchParameter());
     }
+    IEnumerator ResetPunchParameter()
+    {
+        // Attendre un court délai
+        yield return new WaitForSeconds(0.1f);
 
+        // Réinitialiser le paramètre "Punch" à false
+        animator.SetBool("Punch", false);
+    }
     void JumpToTarget()
     {
-        // Logique du saut
-        Debug.Log("Saut !");
+        float distanceToTarget = Vector3.Distance(transform.position, target.position);
+    
+        // Vérifier si la distance à la cible est dans la plage autorisée pour le saut
+        if (distanceToTarget >= 5f && distanceToTarget <= 10f)
+        {
+            // Logique du saut
+            Debug.Log("Saut !");
 
-        jumpStartPosition = transform.position;
-        jumpTargetPosition = target.position;
-        jumpProgress = 0f;
-        isJumping = true;
-        agent.isStopped = true; // Arrête le mouvement du NavMeshAgent
+            animator.SetBool("Jump", true);
+        
+            jumpStartPosition = transform.position;
+            jumpTargetPosition = target.position;
+            jumpProgress = 0f;
+            isJumping = true;
+            agent.isStopped = true; // Arrête le mouvement du NavMeshAgent
+
+            StartCoroutine(ResetJump());
+        }
+    }
+    IEnumerator ResetJump()
+    {
+        // Attendre un court délai
+        yield return new WaitForSeconds(0.1f);
+
+        // Réinitialiser le paramètre de l'animation de saut à false
+        animator.SetBool("Jump", false);
     }
 
     void JumpTowardsTarget()
@@ -132,18 +172,23 @@ public class EnemyController : MonoBehaviour
         {
             playerStats.AddDamage(jumpDamage);
 
-            // Calculer le vecteur de direction opposée au boss
+            // Calculer le vecteur de direction du repoussement
             Vector3 knockbackDirection = (target.position - transform.position).normalized;
-            knockbackDirection.y = 0; // Ne pas repousser verticalement
 
-            // Inverser le vecteur de direction
+            // Inverser le vecteur de direction pour repousser le joueur
             knockbackDirection *= -1f;
 
             // Appliquer une force de repoussement au joueur
             Rigidbody playerRb = target.GetComponent<Rigidbody>();
             if (playerRb != null)
             {
-            playerRb.AddForce(knockbackDirection * knockbackForce, ForceMode.Impulse);
+                // Calculer la hauteur de la trajectoire parabolique du repoussement
+                float knockbackHeight = Mathf.Sin(Mathf.PI * jumpProgress) * jumpHeight;
+
+                // Appliquer la force de repoussement avec la hauteur ajustée
+                Vector3 knockbackForceWithHeight = knockbackDirection * knockbackForce;
+                knockbackForceWithHeight.y += knockbackHeight;
+                playerRb.AddForce(knockbackForceWithHeight, ForceMode.Impulse);
             }
         }
     }
