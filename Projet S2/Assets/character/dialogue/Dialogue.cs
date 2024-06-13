@@ -16,6 +16,7 @@ public class Dialogue : MonoBehaviour
     public int index;
     public move scriptMove;
     public Dashing dashing;
+    public PlayerAttack playerAttack;
     public InputField inputFieldcode;
     public Image pierre1;
      public Image pierre2;
@@ -129,6 +130,7 @@ public class Dialogue : MonoBehaviour
                 ancien.SetActive(false);
                 Star.SetActive(true);
                 pierre2.color = Color.white;
+                playerAttack.enabled = true;
             }
             if(currentNpc == "NPC3" && GestionTicTac.agagne){
                 hommeTictac.SetActive(false);
