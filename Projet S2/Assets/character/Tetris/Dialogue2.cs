@@ -15,11 +15,11 @@ public class Dialogue2 : MonoBehaviour
     public float textspeed;
     public int index;
     public Image pierre1;
-     public Image pierre2;
-      public Image pierre3;
-      public GameObject lumiere;
-      public GameObject lumieren;
-      public Dashing dash;
+    public Image pierre2;
+    public Image pierre3;
+    public GameObject lumiere;
+    public GameObject lumieren;
+    public Dashing dash;
     public PlayerAttack attack;
     
      
@@ -35,6 +35,7 @@ public class Dialogue2 : MonoBehaviour
     public void Start()
     {
         gameObject.SetActive(false);
+        textComponent.text = string.Empty;
     }
 
     public void Update()
