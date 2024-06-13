@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dashing : MonoBehaviour
 {
-     [SerializeField] private float dashSpeed = 20f;
+    [SerializeField] private float dashSpeed = 20f;
     [SerializeField] private float dashTime = 0.2f;
     [SerializeField] private float dashCooldown = 1f;
     [SerializeField] private GameObject dashEffectPrefab; // GameObject à activer pendant le dash
@@ -23,7 +23,7 @@ public class Dashing : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isDashing && Time.time >= lastDashTime + dashCooldown)
+        if (Input.GetKeyDown(KeyCode.Q) && !isDashing && Time.time >= lastDashTime + dashCooldown)
         {
             StartCoroutine(DashCoroutine());
         }

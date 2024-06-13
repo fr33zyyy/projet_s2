@@ -7,13 +7,12 @@ using UnityEngine.UIElements;
 
 public class Projectile : MonoBehaviour
 {
-    public float projectileSpeed = 1;
+    public float projectileSpeed = 20f;
     public GameObject projectile;
     public Transform firePoint;
     private Transform playerTransform;
-    private float timefire = 2f;
-    private float firerate = 4;
-
+    private float fireCooldown = 1f; // Cooldown entre chaque tir en secondes
+    private float lastFireTime = -Mathf.Infinity; // Temps du dernier tir, initialisé à moins l'infini pour permettre le premier tir
 
     void Start()
     {
@@ -22,10 +21,10 @@ public class Projectile : MonoBehaviour
     
     void Update()
     {
-        if(Input.GetButtonDown("Fire1") && Time.time > timefire)
+        if (Input.GetButtonDown("Fire1") && Time.time > lastFireTime + fireCooldown)
         {
-            timefire = Time.time + 1/firerate;
             ShootProjectile();
+            lastFireTime = Time.time; // Mettre à jour le temps du dernier tir
         }
     }
 
@@ -49,7 +48,7 @@ public class Projectile : MonoBehaviour
         bouledefeu projectileDamage = projectileObj.GetComponent<bouledefeu>();
         if (projectileDamage != null)
         {
-            projectileDamage.damage = projectileDamage;
+            projectileDamage.damage = 10; // Définir les dégâts ici
         }
     }
 }

@@ -59,10 +59,15 @@ public class PlayerAttack : MonoBehaviour
         foreach (var hit in hits)
         {
             Enemy enemy = hit.GetComponent<Enemy>();
+            Boss boss = hit.GetComponent<Boss>();
             if (enemy != null)
             {
                 enemy.TakeDamage(punchDamage);
                 enemy.HitVFX(hit.transform.position);
+            }
+            if(boss != enemy)
+            {
+                boss.TakeDamage(punchDamage);
             }
         }
     }

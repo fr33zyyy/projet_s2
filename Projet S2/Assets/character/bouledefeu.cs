@@ -9,7 +9,7 @@ public class bouledefeu : MonoBehaviour
     public GameObject impactVFX;
     private bool collided;
 
-    public float damage = 3;
+    public float damage = 10;
     void OnCollisionEnter(Collision co)
     {
         if (co.gameObject.tag != "Bullet" && co.gameObject.tag != "Player" && !collided)
@@ -21,16 +21,18 @@ public class bouledefeu : MonoBehaviour
             Destroy(impact, 2);
             Destroy (gameObject);
             Enemy enemy = co.gameObject.GetComponent<Enemy>();
+            Boss boss = co.gameObject.GetComponent<Boss>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                
+                boss.TakeDamage(damage);
+            }
+            if (boss != null)
+            {
+                boss.TakeDamage(damage);
+            }
             }
         }
         
     }
 
-    public static implicit operator float(bouledefeu v)
-    {
-        throw new NotImplementedException();
-    }
-}
