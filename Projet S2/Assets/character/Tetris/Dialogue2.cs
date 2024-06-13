@@ -10,6 +10,9 @@ using Unity.VisualScripting;
 
 public class Dialogue2 : MonoBehaviour
 {
+    public GameObject killcompt;
+    public GameObject skelette;
+    public int skelettetue{get;set;} = 0;
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textspeed;
@@ -96,10 +99,12 @@ public class Dialogue2 : MonoBehaviour
                 Debug.Log("Demarage de la partie(victoire)");
             }
             if(currentNpc == "NPC2"){
+                skelette.SetActive(true);
                 pierre1.color = Color.white;
                 pierre2.color = Color.white;
                 attack.enabled = true;
                 dash.enabled = true;
+                killcompt.SetActive(true);
             }
         }
     }

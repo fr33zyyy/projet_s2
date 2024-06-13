@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class Enemy : MonoBehaviour
 
     
     private GameObject player;
+    public Dialogue2 dialogue;
+    public Text text;
     NavMeshAgent agent;
     private Animator animator;
     float timePassed = 0f;
@@ -70,6 +73,8 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        dialogue.skelettetue += 1;
+        text.text = "Kills: " + dialogue.skelettetue.ToString();
         Instantiate(ragdoll, transform.position, transform.rotation);
         Destroy(this.gameObject);
     }
