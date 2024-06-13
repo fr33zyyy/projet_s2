@@ -5,16 +5,20 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private float attackCooldown = 1.0f; // Cooldown time for attacks
+    [SerializeField] private float attackDuration = 1.650f; // Duration of the attack animation
+    [SerializeField] private float punchRange = 1.0f; // Range of the punch
+    [SerializeField] private float punchDamage = 10.0f; // Damage dealt by the punch
+    [SerializeField] private LayerMask targetLayerMask; // Layer mask for detecting targets
 
     private Animator animator;
-    private move moveScript; // Référence au script de mouvement
-    private bool canAttack = true; // Variable de contrôle pour autoriser ou non une nouvelle attaque
+    private move moveScript; // Reference to the movement script
+    private bool canAttack = true; // Control variable to allow or disallow a new attack
     private float lastAttackTime;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        moveScript = GetComponent<move>(); // Récupérer la référence au script de mouvement
+        moveScript = GetComponent<move>(); // Get the reference to the movement script
     }
 
     void Update()
@@ -28,18 +32,43 @@ public class PlayerAttack : MonoBehaviour
 
     IEnumerator AttackCoroutine()
     {
-        canAttack = false; // Désactiver la possibilité d'attaquer à nouveau
-        moveScript.enabled = false; // Désactiver le script de mouvement pendant l'attaque
+        canAttack = false; // Disable the ability to attack again
+        moveScript.enabled = false; // Disable the movement script during the attack
 
-        animator.SetTrigger("Attack"); // Déclencher l'animation d'attaque dans l'Animator
+        animator.SetTrigger("Attack"); // Trigger the attack animation in the Animator
 
-        // Attendre que l'animation d'attaque soit terminée
-        yield return new WaitForSeconds(1.650f); // Remplacez 0.8f par la durée réelle de votre animation d'attaque
+        // Wait until the middle of the attack animation
+        yield return new WaitForSeconds(attackDuration / 2);
 
-        // Fin de l'attaque : réactiver le script de mouvement et autoriser une nouvelle attaque
-        moveScript.enabled = true; // Réactiver le script de mouvement après l'attaque
-        canAttack = true; // Autoriser une nouvelle attaque
+        // Start dealing damage
+        DealDamage();
+
+        // Wait for the rest of the attack animation to finish
+        yield return new WaitForSeconds(attackDuration / 2);
+
+        // Re-enable the movement script and allow a new attack
+        moveScript.enabled = true; // Re-enable the movement script after the attack
+        canAttack = true; // Allow a new attack
 
         lastAttackTime = Time.time;
+    }
+
+    private void DealDamage()
+    {   
+        Collider[] hits = Physics.OverlapSphere(transform.position, punchRange, targetLayerMask);
+        foreach (var hit in hits)
+        {
+            Enemy enemy = hit.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(punchDamage);
+            }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, punchRange);
     }
 }
