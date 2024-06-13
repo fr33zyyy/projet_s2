@@ -16,7 +16,7 @@ public class DebutDialogueFlower3 : MonoBehaviour
   
     public void OnTriggerEnter(Collider other) 
     {
-        if (other.CompareTag("Player") && GestionFlower.vu && GestionFlower.complet)
+        if (other.CompareTag("Player") && GestionFlower.vu && GestionFlower.complet && !GestionGeneral.ChercheCode)
         {
             dialogueScript.StartDialogue("NPC2");
         }

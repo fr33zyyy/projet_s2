@@ -13,7 +13,7 @@ public class inputfieldcode : MonoBehaviour
     public move scriptMove;
     public Dashing dashing;
     
-    private int code = 6452;
+    private int code = 8440;
     void Awake()
     {
         inputField = GetComponent<InputField>();
