@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Contollerstart : MonoBehaviour
@@ -15,7 +16,9 @@ public class Contollerstart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(GestionGeneral.Map2){
+            SceneManager.LoadScene("2eme map");
+        }
         dashing.enabled = false;
         if(!GestionTicTac.ajoue){
             PlayerPrefs.DeleteKey("MiniGameResult");

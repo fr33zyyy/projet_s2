@@ -13,7 +13,7 @@ public class MenuEchap : MonoBehaviour
         {
             menu.SetActive(true);
             dashing.enabled = false;
-            move.enabled = true;
+            move.enabled = false;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueTetris : MonoBehaviour
 {
-     public Dialogue dialogueScript;
+     public Dialogue2 dialogueScript;
     public Transform InteractorSource;
     public Animator animator;
 
@@ -16,7 +16,7 @@ public class DialogueTetris : MonoBehaviour
   
     public void OnTriggerEnter(Collider other) 
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !Gestion2.ajouetet)
         {
             dialogueScript.StartDialogue("NPC0");
         }

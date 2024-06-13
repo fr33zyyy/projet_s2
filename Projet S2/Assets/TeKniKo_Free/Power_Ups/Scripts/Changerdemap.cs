@@ -13,6 +13,7 @@ public class Changerdemap : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            GestionGeneral.Map2 = true;
             SceneManager.LoadScene("2eme map");
         }
     }
