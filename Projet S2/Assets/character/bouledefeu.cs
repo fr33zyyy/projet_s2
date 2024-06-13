@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,5 +27,10 @@ public class bouledefeu : MonoBehaviour
             }
         }
         
+    }
+
+    public static implicit operator float(bouledefeu v)
+    {
+        throw new NotImplementedException();
     }
 }

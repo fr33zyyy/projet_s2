@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] float attackRange = 3f;
     [SerializeField] float aggroRange = 4f;
     [SerializeField] float damageAmount = 10f;
+    [SerializeField] GameObject hitVFX;
+    [SerializeField] GameObject ragdoll;
 
     
     private GameObject player;
@@ -68,7 +70,14 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+        Instantiate(ragdoll, transform.position, transform.rotation);
         Destroy(this.gameObject);
+    }
+
+    public void HitVFX(Vector3 hitposition)
+    {
+        GameObject hit = Instantiate(hitVFX, hitposition, Quaternion.identity);
+        Destroy(hit,3f);
     }
 
     private void OnDrawGizmos()

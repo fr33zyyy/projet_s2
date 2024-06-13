@@ -62,6 +62,7 @@ public class PlayerAttack : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(punchDamage);
+                enemy.HitVFX(hit.transform.position);
             }
         }
     }

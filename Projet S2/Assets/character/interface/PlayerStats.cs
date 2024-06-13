@@ -7,6 +7,8 @@ public class PlayerStats : MonoBehaviour
     private int currentHealth;
     private int maxHealth;
 
+    [SerializeField] GameObject ragdoll;
+
     private int currentMana;
     private int maximumMana;
 
@@ -80,6 +82,11 @@ public class PlayerStats : MonoBehaviour
         if (getDamage) {
             AddDamage(damageAmount);
             getDamage = false;
+        }
+        if (currentHealth <= 2)
+        {
+            Instantiate(ragdoll, transform.position, transform.rotation);
+            Destroy(this.gameObject);
         }
     }
 }
