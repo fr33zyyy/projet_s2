@@ -18,6 +18,7 @@ public class DebutDialogueFlower2 : MonoBehaviour
     {
         if (other.CompareTag("Player") && GestionFlower.vu && !GestionFlower.complet && !GestionGeneral.ChercheCode)
         {
+            animator.SetBool("IsTalking", true);
             dialogueScript.StartDialogue("NPC2");
         }
     }
@@ -26,6 +27,7 @@ public class DebutDialogueFlower2 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            animator.SetBool("IsTalking", false);
             dialogueScript.Start(); 
         }
     }

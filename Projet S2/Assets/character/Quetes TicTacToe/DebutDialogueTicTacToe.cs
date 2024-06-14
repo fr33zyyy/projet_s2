@@ -21,6 +21,7 @@ public class DebutDialogueTicTacToe : MonoBehaviour
     {
         if (other.CompareTag("Player") && !GestionTicTac.ajoue && !GestionGeneral.ChercheCode && !GestionGeneral.ramasse)
         {
+            animator.SetBool("IsTalking", true);
             dialogueScript.StartDialogue("NPC3");
         }
     }
@@ -29,6 +30,7 @@ public class DebutDialogueTicTacToe : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            animator.SetBool("IsTalking", false);
             dialogueScript.Start(); 
         }
     }

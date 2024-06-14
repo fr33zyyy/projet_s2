@@ -276,7 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueScript: {fileID: 447858725}
   InteractorSource: {fileID: 900419434}
-  animator: {fileID: 0}
+  animator: {fileID: 37054717}
 --- !u!136 &37054711
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -319,7 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueScript: {fileID: 1206671697}
   InteractorSource: {fileID: 900419434}
-  animator: {fileID: 0}
+  animator: {fileID: 37054717}
 --- !u!114 &37054715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,7 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueScript: {fileID: 1891626288}
   InteractorSource: {fileID: 900419434}
-  animator: {fileID: 0}
+  animator: {fileID: 37054717}
 --- !u!114 &37054716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,7 +349,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueScript: {fileID: 2027768812}
   InteractorSource: {fileID: 900419434}
-  animator: {fileID: 0}
+  animator: {fileID: 37054717}
+--- !u!95 &37054717
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37054709}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 710140662a476994295b3be28a5d7869, type: 3}
+  m_Controller: {fileID: 9100000, guid: d179bbb72af00434c99e1bbacc663d3c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &66299651 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1143931805411576, guid: f71e980e020ab924ebed9a227a648ec8, type: 3}
@@ -4013,7 +4034,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891033944}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13870122, y: -1e-45, z: -0, w: 0.99033433}
+  m_LocalRotation: {x: 0.13870122, y: 1e-45, z: -0, w: 0.99033433}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4508,7 +4529,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1206646, y: -0.000000004270166, z: 5.1905036e-10, w: 0.99269336}
+  m_LocalRotation: {x: 0.1206646, y: 0.000000004270166, z: -5.1905036e-10, w: 0.99269336}
   m_LocalPosition: {x: 571.60284, y: 17.645, z: 354.1539}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5105,7 +5126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081992284}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12066459, y: -0.0000000042701656, z: 5.1905036e-10, w: 0.99269336}
+  m_LocalRotation: {x: 0.12066459, y: 0.0000000042701656, z: -5.1905036e-10, w: 0.99269336}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7173,15 +7194,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: be54e6282c4a84c44a9a11beee6c1b6c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: be54e6282c4a84c44a9a11beee6c1b6c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: be54e6282c4a84c44a9a11beee6c1b6c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: be54e6282c4a84c44a9a11beee6c1b6c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7253,6 +7274,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: be54e6282c4a84c44a9a11beee6c1b6c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 37054716}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: be54e6282c4a84c44a9a11beee6c1b6c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 37054717}
   m_SourcePrefab: {fileID: 100100000, guid: be54e6282c4a84c44a9a11beee6c1b6c, type: 3}
 --- !u!1001 &1397429070
 PrefabInstance:
@@ -7502,7 +7526,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461362074}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.10263582, y: -0.000000004278879, z: 4.4149776e-10, w: 0.994719}
+  m_LocalRotation: {x: 0.10263582, y: 0.0000000042788786, z: -4.4149773e-10, w: 0.994719}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9277,7 +9301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueScript: {fileID: 585625519}
   InteractorSource: {fileID: 900419434}
-  animator: {fileID: 0}
+  animator: {fileID: 1706671430}
 --- !u!114 &1706671435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9292,7 +9316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueScript: {fileID: 1768528550}
   InteractorSource: {fileID: 900419434}
-  animator: {fileID: 0}
+  animator: {fileID: 1706671430}
 --- !u!114 &1706671437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9307,7 +9331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueScript: {fileID: 1634475623}
   InteractorSource: {fileID: 900419434}
-  animator: {fileID: 0}
+  animator: {fileID: 1706671430}
 --- !u!1 &1727342369
 GameObject:
   m_ObjectHideFlags: 0
@@ -10105,7 +10129,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802607730}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 59d68d209243d5a4c9d6d752a509d31a, type: 3}
   m_Controller: {fileID: 9100000, guid: 14d3012937a38454987d7072b28fc216, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -10131,7 +10155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueScript: {fileID: 1941829563}
   InteractorSource: {fileID: 900419434}
-  animator: {fileID: 0}
+  animator: {fileID: 1802607734}
 --- !u!114 &1802607737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10146,7 +10170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueScript: {fileID: 1727342371}
   InteractorSource: {fileID: 900419434}
-  animator: {fileID: 0}
+  animator: {fileID: 1802607734}
 --- !u!1001 &1827275140
 PrefabInstance:
   m_ObjectHideFlags: 0
