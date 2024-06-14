@@ -12,6 +12,7 @@ public class Contollerstart : MonoBehaviour
     public GameObject Damefleur;
     public GameObject player;
     public Image pierre1;
+    public AudioSource clic;
     public Dashing dashing;
     // Start is called before the first frame update
     void Start()

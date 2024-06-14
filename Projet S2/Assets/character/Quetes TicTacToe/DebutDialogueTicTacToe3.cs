@@ -13,7 +13,9 @@ public class DebutDialogueTicTacToe3 : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        
+        dialogueScript.lines[0] = "Quoi ?! Comment est-ce possible ? Tu... tu m'as vaincu.";
+dialogueScript.lines[1] = "C'est impensable ! Je dois admettre que tu as plus de talent que je ne le pensais.";
+dialogueScript.lines[2] = "Très bien, tu as prouvé ta valeur. Voici ce que tu cherches.";
     }
 
   

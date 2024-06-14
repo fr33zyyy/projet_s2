@@ -38,8 +38,8 @@ public class Boss : MonoBehaviour
     void Start(){
         if(Gestion2.fini){
             
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene("fin");
         }
     }
@@ -179,6 +179,8 @@ public class Boss : MonoBehaviour
         Instantiate(ragdoll, transform.position, transform.rotation);
         Destroy(this.gameObject);
         Gestion2.fini = true;
+        Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;  
         SceneManager.LoadScene("fin");
         
     }

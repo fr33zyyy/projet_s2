@@ -87,6 +87,8 @@ public class Enemy : MonoBehaviour
             daylight.SetActive(true);
             nightlight.SetActive(false);
             ancien.SetActive(true);
+            AudioSound.instance.ambiance.Stop();
+                AudioSound.instance.night.Play();
         }
     }
 

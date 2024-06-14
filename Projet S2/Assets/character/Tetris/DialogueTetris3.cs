@@ -11,6 +11,10 @@ public class DialogueTetris3 : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        dialogueScript.lines[0] = "Je te félicite d'avoir éliminé les 10 monstres de la nuit.";
+dialogueScript.lines[1] = "En récompense, je te confie la dernière pierre, la plus puissante de toutes.";
+dialogueScript.lines[2] = "Cette pierre envoie une boule enflammée très dangereuse.";
+dialogueScript.lines[3] = "Pour l'utiliser, appuie sur le bouton gauche de la souris.";
     }
 
   

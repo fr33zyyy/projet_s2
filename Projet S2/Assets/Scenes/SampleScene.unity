@@ -672,8 +672,8 @@ MonoBehaviour:
   - "Pour retrouver le code, j'ai donn\xE9 des indices \xE0 chacun des membres du
     village que tu as vu"
   - il faut que tu reviennes et me dises le code
-  - premier indice, tous les chiffres sont pair
-  - fonce !!
+  - il faut que tu reviennes et me dises le code
+  - il faut que tu reviennes et me dises le code
   textspeed: 0.1
   index: 0
   scriptMove: {fileID: 0}
@@ -826,6 +826,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 530d8227c59becd4fb188ec6f38f9870, type: 3}
       insertIndex: -1
       addedObject: {fileID: 900419444}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 530d8227c59becd4fb188ec6f38f9870, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 900419445}
   m_SourcePrefab: {fileID: 100100000, guid: 530d8227c59becd4fb188ec6f38f9870, type: 3}
 --- !u!1 &197639807 stripped
 GameObject:
@@ -1491,6 +1494,8 @@ MonoBehaviour:
   textComponent: {fileID: 319778023}
   lines:
   - le code est bon merci beacoup
+  - le code est bon merci beacoup
+  - le code est bon merci beacoup
   textspeed: 0.1
   index: 0
   scriptMove: {fileID: 900419439}
@@ -1810,6 +1815,8 @@ MonoBehaviour:
   lines:
   - Salut ! peux tu m'aider ?
   - "il faut que tu me ram\xE8ne 10 fleurs bleu"
+  - je te donnerais quelque chose en echangege
+  - je te donnerais quelque chose en echangege
   - je te donnerais quelque chose en echangege
   textspeed: 0.1
   index: 0
@@ -2601,6 +2608,7 @@ MonoBehaviour:
   textComponent: {fileID: 1652737326}
   lines:
   - "Felicitation tu as gagn\xE9 m\xEAme si c'\xE9tait de la chance"
+  - "\xE7a ne t'arrivera pas souvent"
   - "\xE7a ne t'arrivera pas souvent"
   textspeed: 0.1
   index: 0
@@ -4219,6 +4227,102 @@ MonoBehaviour:
   explosionVFXPrefab: {fileID: 0}
   handTransform: {fileID: 0}
   explosionDuration: 1
+--- !u!82 &900419445
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900419430}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0e65e016865ab344c85d1d1210f48ddc, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &912892994
 GameObject:
   m_ObjectHideFlags: 3
@@ -5445,7 +5549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3c37ffcb9b2db5047b607bc24b6fa485, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5622,6 +5726,10 @@ MonoBehaviour:
   - "j'ai cru comprendre que tu \xE9tais tr\xE8s fort"
   - pour voir a quelle point tu es fort afronte moi en 1 contre 1 au TicTacToe
   - veux tu jouer contre moi ?
+  - veux tu jouer contre moi ?
+  - veux tu jouer contre moi ?
+  - veux tu jouer contre moi ?
+  - veux tu jouer contre moi ?
   textspeed: 0.1
   index: 0
   scriptMove: {fileID: 0}
@@ -5758,6 +5866,7 @@ MonoBehaviour:
   textComponent: {fileID: 1490416766}
   lines:
   - Tu n'as pas toutes les fleurs
+  - Revient quand ten a 10
   - Revient quand ten a 10
   textspeed: 0.1
   index: 0
@@ -6794,6 +6903,7 @@ MonoBehaviour:
   lines:
   - le code n'est pas le bon
   - Tous les chiffres du code sont pair
+  - Tous les chiffres du code sont pair
   textspeed: 0.1
   index: 0
   scriptMove: {fileID: 900419439}
@@ -7321,6 +7431,246 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7098389285256826050, guid: fb070a2d31206d9499ecc8a77be0ebf0, type: 3}
   m_PrefabInstance: {fileID: 1441165432}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1414662744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1414662745}
+  - component: {fileID: 1414662747}
+  - component: {fileID: 1414662748}
+  - component: {fileID: 1414662749}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1414662745
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414662744}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 415.4, y: 261, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1414662747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414662744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e20dbcde34bf4e42b39ddd75ac5f947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSound: {fileID: 1414662748}
+  dash: {fileID: 1414662749}
+--- !u!82 &1414662748
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414662744}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 523924e8918aa8e47a8e695ff5b7a463, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &1414662749
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414662744}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0e65e016865ab344c85d1d1210f48ddc, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.63
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1441165432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7816,6 +8166,7 @@ GameObject:
   - component: {fileID: 1533055999}
   - component: {fileID: 1533056000}
   - component: {fileID: 1533056001}
+  - component: {fileID: 1533056002}
   m_Layer: 0
   m_Name: gestion
   m_TagString: Untagged
@@ -7855,6 +8206,7 @@ MonoBehaviour:
   Damefleur: {fileID: 37054709}
   player: {fileID: 900419430}
   pierre1: {fileID: 974307108}
+  clic: {fileID: 0}
   dashing: {fileID: 900419441}
 --- !u!114 &1533056001
 MonoBehaviour:
@@ -7871,6 +8223,102 @@ MonoBehaviour:
   menu: {fileID: 276201758}
   move: {fileID: 900419439}
   dashing: {fileID: 900419441}
+--- !u!82 &1533056002
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533055998}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7a1f858b1606c33459f8c0f5d1237cde, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.05
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 0
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1538366101
 GameObject:
   m_ObjectHideFlags: 0
@@ -7924,7 +8372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1580995622}
   lines:
-  - Alors le code?
+  - "As-tu d\xE9j\xE0 trouv\xE9 le code \xE0 quatre chiffres ?"
   textspeed: 0.1
   index: 0
   scriptMove: {fileID: 900419439}
@@ -9370,11 +9818,12 @@ MonoBehaviour:
   - c'est le portail pour t'emmener vers la nouvelle dimension
   - apuie sur "n"
   - Bon voyage et revien vivant avec toutes les pierres
+  - Bon voyage et revien vivant avec toutes les pierres
   textspeed: 0.1
   index: 0
   scriptMove: {fileID: 0}
   dashing: {fileID: 0}
-  playerAttack: {fileID: 0}
+  playerAttack: {fileID: 900419444}
   inputFieldcode: {fileID: 0}
   pierre1: {fileID: 0}
   pierre2: {fileID: 460005532}
@@ -9482,6 +9931,8 @@ MonoBehaviour:
   textComponent: {fileID: 492527001}
   lines:
   - "j'ai gagn\xE9 haut la main petit"
+  - Prend donc ta revanche
+  - Prend donc ta revanche
   - Prend donc ta revanche
   textspeed: 0.1
   index: 0
@@ -10358,6 +10809,7 @@ MonoBehaviour:
   textComponent: {fileID: 1467949277}
   lines:
   - 'Merci beacoup !! '
+  - Je vais pouvoir faire ma potion
   - Je vais pouvoir faire ma potion
   textspeed: 0.1
   index: 0
@@ -12083,3 +12535,4 @@ SceneRoots:
   - {fileID: 950230795}
   - {fileID: 1783733705}
   - {fileID: 1160220202}
+  - {fileID: 1414662745}

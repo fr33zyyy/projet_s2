@@ -11,6 +11,9 @@ public class DialogueTetris1 : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        dialogueScript.lines[0] = "Tu as échoué à gagner la partie de Tetris.";
+dialogueScript.lines[1] = "Le temps presse, la nuit approche rapidement.";
+dialogueScript.lines[2] = "Tu dois te dépêcher de réessayer avant qu'il ne soit trop tard.";
     }
 
   

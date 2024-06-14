@@ -72,6 +72,7 @@ public class Dialogue2 : MonoBehaviour
     {
         foreach (char c in lines[index].ToCharArray())
         {
+            AudioSound.instance.PlayClickSound();
             textComponent.text += c;
             yield return new WaitForSeconds(textspeed);
         }
@@ -84,8 +85,12 @@ public class Dialogue2 : MonoBehaviour
             if(currentNpc == "NPC2" && index == 1){
                 lumiere.SetActive(false);
                 lumieren.SetActive(true);
+                AudioSound.instance.ambiance.Stop();
+                AudioSound.instance.night.Play();
+                
             }
             index++;
+            AudioSound.instance.PlayClickSound();
             textComponent.text = string.Empty;
             StartCoroutine(TypeLine());
         }

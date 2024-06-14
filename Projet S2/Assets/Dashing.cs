@@ -14,6 +14,7 @@ public class Dashing : MonoBehaviour
     private bool isDashing = false;
     private float lastDashTime = -Mathf.Infinity;
     private GameObject currentDashEffect; // Référence à l'effet actuellement activé
+    
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class Dashing : MonoBehaviour
     IEnumerator DashCoroutine()
     {
         isDashing = true;
+        AudioSound.instance.PlayDashSound();
         float startTime = Time.time;
 
         scriptMove.enabled = false;

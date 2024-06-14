@@ -11,6 +11,10 @@ public class DialogueTetris : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        dialogueScript.lines[0] = GestionGeneral.Name + ", tu as perdu tes pouvoirs en venant ici.";
+dialogueScript.lines[1] = "Pour les retrouver, tu dois gagner une partie de Tetris du Monde Catastrophe.";
+dialogueScript.lines[2] = "Mais sois prudent, la nuit approche vite.";
+dialogueScript.lines[3] = "Avec elle viennent les redoutables monstres de la nuit.";
     }
 
   

@@ -22,7 +22,6 @@ public class Dialogue : MonoBehaviour
      public Image pierre2;
       public Image pierre3;
     
-     
     public GameObject reponsecode;
     public GameObject hommecode;
     public GameObject fleurs;
@@ -86,6 +85,7 @@ public class Dialogue : MonoBehaviour
     {
         foreach (char c in lines[index].ToCharArray())
         {
+            AudioSound.instance.PlayClickSound();
             textComponent.text += c;
             yield return new WaitForSeconds(textspeed);
         }
@@ -97,6 +97,7 @@ public class Dialogue : MonoBehaviour
         {
             index++;
             textComponent.text = string.Empty;
+            AudioSound.instance.PlayClickSound();
             StartCoroutine(TypeLine());
         }
         else

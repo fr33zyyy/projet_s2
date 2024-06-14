@@ -13,6 +13,9 @@ public class DebutDialogueCode2 : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        dialogueScript.lines[0] = "Ah, tu as trouvé le bon code ! Félicitations !";
+dialogueScript.lines[1] = "Tu es vraiment doué pour résoudre ces énigmes.";
+dialogueScript.lines[2] = "Voici donc le dernier ingrédient que tu cherchais.";
     }
 
   
