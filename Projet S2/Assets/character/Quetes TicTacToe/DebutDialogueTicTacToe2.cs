@@ -19,7 +19,7 @@ public class DebutDialogueTicTacToe2 : MonoBehaviour
   
     private void OnTriggerEnter(Collider other) 
     {
-        if (other.CompareTag("Player") && GestionTicTac.ajoue && !GestionTicTac.agagne)
+        if (other.CompareTag("Player") && GestionTicTac.ajoue && !GestionTicTac.agagne && !GestionGeneral.ramasse)
         {
             dialogueScript.StartDialogue("NPC3");
         }

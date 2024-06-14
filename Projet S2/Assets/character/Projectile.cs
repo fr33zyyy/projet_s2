@@ -30,6 +30,7 @@ public class Projectile : MonoBehaviour
 
     void ShootProjectile()
     {
+        Gestion2.atester = true;
         Vector3 playerPosition = playerTransform.position;
         Vector3 playerForward = playerTransform.forward;
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Starting : MonoBehaviour
@@ -22,6 +23,9 @@ public class Starting : MonoBehaviour
         attack.enabled = false;
         dash.enabled = false;
         anien.SetActive(true);
+        if(Gestion2.boss){
+            SceneManager.LoadScene("final_boss");
+        }
     }
 
     

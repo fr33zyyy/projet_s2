@@ -6,6 +6,7 @@ public class PlayerStats : MonoBehaviour
 {
     private int currentHealth;
     private int maxHealth;
+    public GameObject mortv;
 
     [SerializeField] GameObject ragdoll;
 
@@ -75,8 +76,7 @@ public class PlayerStats : MonoBehaviour
                 }
             }
             yield return null;
-        }
-    }
+    }}
 
     private void Update() {
         if (getDamage) {
@@ -87,6 +87,12 @@ public class PlayerStats : MonoBehaviour
         {
             Instantiate(ragdoll, transform.position, transform.rotation);
             Destroy(this.gameObject);
+            mortv.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            
         }
     }
+
+    
 }

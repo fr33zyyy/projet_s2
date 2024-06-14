@@ -4177,6 +4177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bf23dcb23d02f4f897ab7547677ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mortv: {fileID: 0}
   ragdoll: {fileID: 0}
   getDamage: 0
   damageAmount: 25
@@ -4214,6 +4215,10 @@ MonoBehaviour:
   targetLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  punchVFXPrefab: {fileID: 0}
+  explosionVFXPrefab: {fileID: 0}
+  handTransform: {fileID: 0}
+  explosionDuration: 1
 --- !u!1 &912892994
 GameObject:
   m_ObjectHideFlags: 3
@@ -5440,7 +5445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3c37ffcb9b2db5047b607bc24b6fa485, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7497,7 +7502,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461362074}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.10263582, y: 0.000000004278879, z: -4.4149776e-10, w: 0.994719}
+  m_LocalRotation: {x: 0.10263582, y: -0.000000004278879, z: 4.4149776e-10, w: 0.994719}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

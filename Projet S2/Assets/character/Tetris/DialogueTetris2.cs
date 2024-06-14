@@ -16,7 +16,7 @@ public class DialogueTetris2 : MonoBehaviour
   
     public void OnTriggerEnter(Collider other) 
     {
-        if (other.CompareTag("Player") && Gestion2.ajouetet && Gestion2.agagne)
+        if (other.CompareTag("Player") && Gestion2.agagne && !Gestion2.fightopponant)
         {
             dialogueScript.StartDialogue("NPC2");
         }

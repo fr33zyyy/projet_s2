@@ -16,8 +16,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject hitVFX;
     [SerializeField] GameObject ragdoll;
 
+
     
     private GameObject player;
+    public GameObject ancien;
+    public GameObject daylight;
+    public GameObject nightlight;
+
     public Dialogue2 dialogue;
     public Text text;
     NavMeshAgent agent;
@@ -77,6 +82,12 @@ public class Enemy : MonoBehaviour
         text.text = "Kills: " + dialogue.skelettetue.ToString();
         Instantiate(ragdoll, transform.position, transform.rotation);
         Destroy(this.gameObject);
+        if(dialogue.skelettetue == 10){
+            Gestion2.fightopponant = true;
+            daylight.SetActive(true);
+            nightlight.SetActive(false);
+            ancien.SetActive(true);
+        }
     }
 
     public void HitVFX(Vector3 hitposition)

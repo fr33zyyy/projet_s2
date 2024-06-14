@@ -17,7 +17,7 @@ public class Contollerstart : MonoBehaviour
     void Start()
     {
         if(GestionGeneral.Map2){
-            SceneManager.LoadScene("2eme map");
+            SceneManager.LoadScene("2eme_map");
         }
         dashing.enabled = false;
         if(!GestionTicTac.ajoue){

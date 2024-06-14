@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
@@ -34,7 +35,14 @@ public class Boss : MonoBehaviour
     public float pursueRange = 10f;
 
     private bool isAttacking = false; // Variable pour indiquer si le boss est en train d'attaquer
-
+    void Start(){
+        if(Gestion2.fini){
+            
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+            SceneManager.LoadScene("fin");
+        }
+    }
     void Update()
     {
         if (health <= 0f)
@@ -170,6 +178,8 @@ public class Boss : MonoBehaviour
         agent.isStopped = true;
         Instantiate(ragdoll, transform.position, transform.rotation);
         Destroy(this.gameObject);
+        Gestion2.fini = true;
+        SceneManager.LoadScene("fin");
         
     }
     void UpdateHealthUI()

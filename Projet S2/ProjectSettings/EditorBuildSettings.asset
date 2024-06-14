@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/firstlobby.unity
+    guid: b9c1f3cbff738894f9359ea5457df183
+  - enabled: 1
     path: Assets/Scenes/2eme_map.unity
     guid: de6b8df4cc24bc74ea64a13ca85c518d
   - enabled: 1
     path: Assets/Scenes/final_boss.unity
     guid: af22c4a591368c5489d3e64ff14a2ce7
-  - enabled: 1
-    path: Assets/Scenes/firstlobby.unity
-    guid: b9c1f3cbff738894f9359ea5457df183
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/transi.unity
     guid: bcc26737503763641a8bbe8e388d6e8f
+  - enabled: 1
+    path: Assets/Scenes/fin.unity
+    guid: 4a199eaf65dcaca4199f7908e6745fff
   m_configObjects: {}

@@ -24,6 +24,8 @@ public class Dialogue2 : MonoBehaviour
     public GameObject lumieren;
     public Dashing dash;
     public PlayerAttack attack;
+    public Projectile projectile;
+    public GameObject star;
     
      
     
@@ -99,6 +101,7 @@ public class Dialogue2 : MonoBehaviour
                 Debug.Log("Demarage de la partie(victoire)");
             }
             if(currentNpc == "NPC2"){
+                ancien.SetActive(false);
                 skelette.SetActive(true);
                 pierre1.color = Color.white;
                 pierre2.color = Color.white;
@@ -106,6 +109,18 @@ public class Dialogue2 : MonoBehaviour
                 dash.enabled = true;
                 killcompt.SetActive(true);
             }
+            if(currentNpc == "NPC3"){
+                killcompt.SetActive(false);
+                pierre3.color = Color.white;
+                projectile.enabled = true;
+                Gestion2.aparler = true;
+            }
+            if (currentNpc == "NPC5"){
+                
+                star.SetActive(true);
+                ancien.SetActive(false);
+            }
+            
         }
     }
 

@@ -102,17 +102,19 @@ public class Dialogue : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
-            if (ShouldLaunchMinigame(currentNpc) && !GestionTicTac.agagne)
+            if (currentNpc == "NPC3" )
             {
                 minijeu();
             }
             if(ShouldFlower(currentNpc) && !GestionGeneral.ChercheCode){
                 StartFlowerQ();
+                GestionGeneral.ramasse = true;
                 GestionFlower.vu = true;
             }
             if (GestionFlower.vu && GestionFlower.complet && ShouldFlower(currentNpc)){
                 CompteurFlower.SetActive(false);
                 damefleur.SetActive(false);
+                GestionGeneral.ramasse = false;
                 GestionGeneral.Flower = true;
                 if(GestionGeneral.MorpionQuete){
                     hommecode.SetActive(true);
@@ -132,7 +134,7 @@ public class Dialogue : MonoBehaviour
                 pierre2.color = Color.white;
                 playerAttack.enabled = true;
             }
-            if(currentNpc == "NPC3" && GestionTicTac.agagne){
+            if(currentNpc == "NPC10" ){
                 hommeTictac.SetActive(false);
                 GestionGeneral.MorpionQuete = true;
                 if(GestionFlower.complet){
@@ -177,10 +179,7 @@ public class Dialogue : MonoBehaviour
     public void minijeu()
     {
         SceneData.previousScene = SceneManager.GetActiveScene().name;
-        Debug.Log(SceneData.previousScene);
         SceneManager.LoadScene("lobby-solo");
-        Debug.Log(SceneData.previousScene);
-        Debug.Log(PlayerPrefs.GetInt("MiniGameResult", -1));
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         SceneData.previousScene = SceneManager.GetActiveScene().name;
