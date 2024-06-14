@@ -9,11 +9,18 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float punchRange = 1.0f; // Range of the punch
     [SerializeField] private float punchDamage = 10.0f; // Damage dealt by the punch
     [SerializeField] private LayerMask targetLayerMask; // Layer mask for detecting targets
+    [SerializeField] private GameObject punchVFXPrefab; // Prefab for the punch VFX
+    [SerializeField] private GameObject explosionVFXPrefab; // Prefab for the explosion VFX
+    [SerializeField] private Transform handTransform; // Transform of the player's hand
+    [SerializeField] private float explosionDuration = 1.0f; // Duration before the explosion VFX is destroyed
 
     private Animator animator;
     private move moveScript; // Reference to the movement script
     private bool canAttack = true; // Control variable to allow or disallow a new attack
     private float lastAttackTime;
+    private GameObject currentVFX; // Reference to the current VFX instance
+
+   
 
     void Start()
     {
@@ -37,6 +44,9 @@ public class PlayerAttack : MonoBehaviour
 
         animator.SetTrigger("Attack"); // Trigger the attack animation in the Animator
 
+        currentVFX = Instantiate(punchVFXPrefab, handTransform.position, handTransform.rotation);
+        currentVFX.transform.SetParent(handTransform);
+
         // Wait until the middle of the attack animation
         yield return new WaitForSeconds(attackDuration / 2);
 
@@ -45,6 +55,15 @@ public class PlayerAttack : MonoBehaviour
 
         // Wait for the rest of the attack animation to finish
         yield return new WaitForSeconds(attackDuration / 2);
+
+        currentVFX.transform.SetParent(null);
+        Destroy(currentVFX);
+
+        // Instantiate the explosion VFX at the current position of the hand
+         GameObject explosionVFX = Instantiate(explosionVFXPrefab, handTransform.position, Quaternion.identity);
+        
+        // Destroy the explosion VFX after a delay
+        Destroy(explosionVFX, explosionDuration);
 
         // Re-enable the movement script and allow a new attack
         moveScript.enabled = true; // Re-enable the movement script after the attack
@@ -65,7 +84,7 @@ public class PlayerAttack : MonoBehaviour
                 enemy.TakeDamage(punchDamage);
                 enemy.HitVFX(hit.transform.position);
             }
-            if(boss != enemy)
+            if(boss != null)
             {
                 boss.TakeDamage(punchDamage);
             }

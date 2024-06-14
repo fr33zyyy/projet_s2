@@ -4857,7 +4857,7 @@ GameObject:
   - component: {fileID: 8599730680303717417}
   - component: {fileID: 3891837493045721082}
   m_Layer: 0
-  m_Name: Magic fire 3
+  m_Name: Boule De Feu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
