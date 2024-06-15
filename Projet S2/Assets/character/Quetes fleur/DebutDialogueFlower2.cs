@@ -21,6 +21,7 @@ dialogueScript.lines[2] = "Reviens me voir quand tu les auras toutes.";
     {
         if (other.CompareTag("Player") && GestionFlower.vu && !GestionFlower.complet && !GestionGeneral.ChercheCode)
         {
+            animator.SetBool("IsTalking", true);
             dialogueScript.StartDialogue("NPC2");
         }
     }
@@ -29,6 +30,7 @@ dialogueScript.lines[2] = "Reviens me voir quand tu les auras toutes.";
     {
         if (other.CompareTag("Player"))
         {
+            animator.SetBool("IsTalking", false);
             dialogueScript.Start(); 
         }
     }

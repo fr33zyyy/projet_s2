@@ -27,6 +27,7 @@ dialogueScript.lines[6] = "Je t'attends donc, si tu oses relever ce défi !";
     {
         if (other.CompareTag("Player") && !GestionTicTac.ajoue && !GestionGeneral.ChercheCode && !GestionGeneral.ramasse)
         {
+            animator.SetBool("IsTalking", true);
             dialogueScript.StartDialogue("NPC3");
         }
     }
@@ -35,6 +36,7 @@ dialogueScript.lines[6] = "Je t'attends donc, si tu oses relever ce défi !";
     {
         if (other.CompareTag("Player"))
         {
+            animator.SetBool("IsTalking", false);
             dialogueScript.Start(); 
         }
     }
