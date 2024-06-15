@@ -14,14 +14,15 @@ public class DebutDialogueCode2 : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         dialogueScript.lines[0] = "Ah, tu as trouvé le bon code ! Félicitations !";
-dialogueScript.lines[1] = "Tu es vraiment doué pour résoudre ces énigmes.";
-dialogueScript.lines[2] = "Voici donc le dernier ingrédient que tu cherchais.";
+        dialogueScript.lines[1] = "Tu es vraiment doué pour résoudre ces énigmes.";
+        dialogueScript.lines[2] = "Voici donc le dernier ingrédient que tu cherchais.";
     }
 
   
     public void Activation() 
     {
        
+        animator.SetBool("IsTalking", true);
         dialogueScript.StartDialogue("NPC5");
 
     }
@@ -30,7 +31,10 @@ dialogueScript.lines[2] = "Voici donc le dernier ingrédient que tu cherchais.";
     {
         if (other.CompareTag("Player"))
         {
+            animator.SetBool("IsTalking", false);
             dialogueScript.Start(); 
         }
     }
+
+    
 }

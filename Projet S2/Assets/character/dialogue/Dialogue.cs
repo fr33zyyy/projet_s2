@@ -19,8 +19,8 @@ public class Dialogue : MonoBehaviour
     public PlayerAttack playerAttack;
     public InputField inputFieldcode;
     public Image pierre1;
-     public Image pierre2;
-      public Image pierre3;
+    public Image pierre2;
+    public Image pierre3;
     
     public GameObject reponsecode;
     public GameObject hommecode;
@@ -31,10 +31,8 @@ public class Dialogue : MonoBehaviour
     public GameObject CompteurFlower;
     public GameObject Star;
 
-    // Variable to hold the current NPC identifier
     public string currentNpc;
-     public List<string> npcsWithMinigame;
-    // List of NPCs that should launch the mini-game
+    public List<string> npcsWithMinigame;
     public List<string> npcsFlower;
 
     public void Start()
@@ -50,9 +48,9 @@ public class Dialogue : MonoBehaviour
         gameObject.SetActive(false);
         textComponent.text = string.Empty;
 
-        // Initialize the list of NPCs that should launch the mini-game
         npcsWithMinigame = new List<string> { "NPC3" };
         npcsFlower = new List<string>{"NPC2"};
+        
         
     }
 
@@ -72,7 +70,6 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    // StartDialogue now takes a parameter to set the current NPC
     public void StartDialogue(string npc)
     {
         index = 0;

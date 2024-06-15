@@ -18,6 +18,7 @@ public class DialogueTetris4 : MonoBehaviour
     {
         if (other.CompareTag("Player") && !Gestion2.atester && Gestion2.aparler)
         {
+            animator.SetBool("IsTalking", true);
             dialogueScript.StartDialogue("NPC4");
         }
     }
@@ -26,6 +27,7 @@ public class DialogueTetris4 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            animator.SetBool("IsTalking", false);
             dialogueScript.Start(); 
         }
     }

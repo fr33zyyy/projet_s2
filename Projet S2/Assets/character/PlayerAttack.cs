@@ -50,7 +50,6 @@ public class PlayerAttack : MonoBehaviour
         // Wait until the middle of the attack animation
         yield return new WaitForSeconds(attackDuration / 2);
 
-        // Start dealing damage
         DealDamage();
 
         // Wait for the rest of the attack animation to finish
@@ -60,8 +59,10 @@ public class PlayerAttack : MonoBehaviour
         Destroy(currentVFX);
 
         // Instantiate the explosion VFX at the current position of the hand
-         GameObject explosionVFX = Instantiate(explosionVFXPrefab, handTransform.position, Quaternion.identity);
-        
+        GameObject explosionVFX = Instantiate(explosionVFXPrefab, handTransform.position, Quaternion.identity);
+
+        DealDamage();
+
         // Destroy the explosion VFX after a delay
         Destroy(explosionVFX, explosionDuration);
 

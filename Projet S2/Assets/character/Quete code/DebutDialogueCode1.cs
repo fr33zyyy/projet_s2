@@ -20,6 +20,7 @@ public class DebutDialogueCode1 : MonoBehaviour
     {
         if (other.CompareTag("Player") && Codegestion.vu && !Codegestion.reussi)
         {
+            animator.SetBool("IsTalking", true);
             dialogueScript.StartDialogue("NPC4");
         }
     }
@@ -28,6 +29,7 @@ public class DebutDialogueCode1 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            animator.SetBool("IsTalking", false);
             dialogueScript.Start(); 
         }
     }

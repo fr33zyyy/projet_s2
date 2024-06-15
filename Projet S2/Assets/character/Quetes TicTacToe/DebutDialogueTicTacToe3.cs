@@ -14,8 +14,8 @@ public class DebutDialogueTicTacToe3 : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         dialogueScript.lines[0] = "Quoi ?! Comment est-ce possible ? Tu... tu m'as vaincu.";
-dialogueScript.lines[1] = "C'est impensable ! Je dois admettre que tu as plus de talent que je ne le pensais.";
-dialogueScript.lines[2] = "Très bien, tu as prouvé ta valeur. Voici ce que tu cherches.";
+        dialogueScript.lines[1] = "C'est impensable ! Je dois admettre que tu as plus de talent que je ne le pensais.";
+        dialogueScript.lines[2] = "Très bien, tu as prouvé ta valeur. Voici ce que tu cherches.";
     }
 
   
@@ -23,6 +23,7 @@ dialogueScript.lines[2] = "Très bien, tu as prouvé ta valeur. Voici ce que tu 
     {
         if (other.CompareTag("Player") && GestionTicTac.ajoue && GestionTicTac.agagne && !GestionGeneral.ChercheCode && !GestionGeneral.ramasse)
         {
+            animator.SetBool("IsTalking", true);
             dialogueScript.StartDialogue("NPC10");
         }
     }
@@ -31,6 +32,7 @@ dialogueScript.lines[2] = "Très bien, tu as prouvé ta valeur. Voici ce que tu 
     {
         if (other.CompareTag("Player"))
         {
+            animator.SetBool("IsTalking", false);
             dialogueScript.Start(); 
         }
     }

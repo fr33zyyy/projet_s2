@@ -12,8 +12,8 @@ public class DialogueTetris1 : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         dialogueScript.lines[0] = "Tu as échoué à gagner la partie de Tetris.";
-dialogueScript.lines[1] = "Le temps presse, la nuit approche rapidement.";
-dialogueScript.lines[2] = "Tu dois te dépêcher de réessayer avant qu'il ne soit trop tard.";
+        dialogueScript.lines[1] = "Le temps presse, la nuit approche rapidement.";
+        dialogueScript.lines[2] = "Tu dois te dépêcher de réessayer avant qu'il ne soit trop tard.";
     }
 
   
@@ -21,6 +21,7 @@ dialogueScript.lines[2] = "Tu dois te dépêcher de réessayer avant qu'il ne so
     {
         if (other.CompareTag("Player") && Gestion2.ajouetet && !Gestion2.agagne)
         {
+            animator.SetBool("IsTalking", true);
             dialogueScript.StartDialogue("NPC1");
         }
     }
@@ -29,6 +30,7 @@ dialogueScript.lines[2] = "Tu dois te dépêcher de réessayer avant qu'il ne so
     {
         if (other.CompareTag("Player"))
         {
+            animator.SetBool("IsTalking", false);
             dialogueScript.Start(); 
         }
     }

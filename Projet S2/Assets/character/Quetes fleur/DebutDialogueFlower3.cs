@@ -12,8 +12,8 @@ public class DebutDialogueFlower3 : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         dialogueScript.lines[0] = "Ah, te voilà de retour ! As-tu réussi à trouver les dix fleurs bleues ?";
-dialogueScript.lines[1] = "Fantastique ! Tu as accompli cette tâche avec succès.";
-dialogueScript.lines[2] = "En récompense de ton effort, voici l'ingrédient dont tu as besoin.";
+        dialogueScript.lines[1] = "Fantastique ! Tu as accompli cette tâche avec succès.";
+        dialogueScript.lines[2] = "En récompense de ton effort, voici l'ingrédient dont tu as besoin.";
     }
 
   
@@ -21,6 +21,7 @@ dialogueScript.lines[2] = "En récompense de ton effort, voici l'ingrédient don
     {
         if (other.CompareTag("Player") && GestionFlower.vu && GestionFlower.complet && !GestionGeneral.ChercheCode)
         {
+            animator.SetBool("IsTalking", true);
             dialogueScript.StartDialogue("NPC2");
         }
     }
@@ -29,6 +30,7 @@ dialogueScript.lines[2] = "En récompense de ton effort, voici l'ingrédient don
     {
         if (other.CompareTag("Player"))
         {
+            animator.SetBool("IsTalking", false);
             dialogueScript.Start(); 
         }
     }

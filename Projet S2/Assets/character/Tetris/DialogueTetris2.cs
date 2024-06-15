@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DialogueTetris2 : MonoBehaviour
 {
-     public Dialogue2 dialogueScript;
+    public Dialogue2 dialogueScript;
     public Transform InteractorSource;
     public Animator animator;
 
@@ -12,9 +12,9 @@ public class DialogueTetris2 : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         dialogueScript.lines[0] = "Félicitations ! Tu as brillamment remporté la partie de Tetris.";
-dialogueScript.lines[1] = "Grâce à ta victoire, tu récupères maintenant tes pouvoirs.";
-dialogueScript.lines[2] = "Oh non !!!. La nuit est tombée.";
-dialogueScript.lines[3] = "je te souhaite bonne chance!";
+        dialogueScript.lines[1] = "Grâce à ta victoire, tu récupères maintenant tes pouvoirs.";
+        dialogueScript.lines[2] = "Oh non !!!. La nuit est tombée.";
+        dialogueScript.lines[3] = "je te souhaite bonne chance!";
     }
 
   
@@ -22,6 +22,7 @@ dialogueScript.lines[3] = "je te souhaite bonne chance!";
     {
         if (other.CompareTag("Player") && Gestion2.agagne && !Gestion2.fightopponant)
         {
+            animator.SetBool("IsTalking", true);
             dialogueScript.StartDialogue("NPC2");
         }
     }
@@ -30,6 +31,7 @@ dialogueScript.lines[3] = "je te souhaite bonne chance!";
     {
         if (other.CompareTag("Player"))
         {
+            animator.SetBool("IsTalking", false);
             dialogueScript.Start(); 
         }
     }

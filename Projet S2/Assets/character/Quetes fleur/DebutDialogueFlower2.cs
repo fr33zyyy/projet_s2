@@ -12,8 +12,8 @@ public class DebutDialogueFlower2 : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         dialogueScript.lines[0] = "As-tu réussi à rassembler les dix fleurs bleues que je t'ai demandées ?";
-dialogueScript.lines[1] = "Il semble que tu n'as pas encore toutes les fleurs.";
-dialogueScript.lines[2] = "Reviens me voir quand tu les auras toutes.";
+        dialogueScript.lines[1] = "Il semble que tu n'as pas encore toutes les fleurs.";
+        dialogueScript.lines[2] = "Reviens me voir quand tu les auras toutes.";
     }
 
   

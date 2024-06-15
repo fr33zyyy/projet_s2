@@ -14,14 +14,9 @@ public class DebutDialogueTicTacToe2 : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         dialogueScript.lines[0] = "Ha ! Tu vois, je savais que tu n'avais aucune chance contre moi.";
-dialogueScript.lines[1] = "Mais ne crois pas que je vais te faciliter la tâche la prochaine fois.";
-dialogueScript.lines[2] = "Je suis prêt à te donner une chance de te racheter immédiatement.";
-dialogueScript.lines[3] = "Une revanche ? Tu oses encore ? Soit. Prépare-toi à perdre à nouveau.";
-
-
-
-
-
+        dialogueScript.lines[1] = "Mais ne crois pas que je vais te faciliter la tâche la prochaine fois.";
+        dialogueScript.lines[2] = "Je suis prêt à te donner une chance de te racheter immédiatement.";
+        dialogueScript.lines[3] = "Une revanche ? Tu oses encore ? Soit. Prépare-toi à perdre à nouveau.";
     }
 
   
@@ -29,6 +24,7 @@ dialogueScript.lines[3] = "Une revanche ? Tu oses encore ? Soit. Prépare-toi à
     {
         if (other.CompareTag("Player") && GestionTicTac.ajoue && !GestionTicTac.agagne && !GestionGeneral.ramasse)
         {
+            animator.SetBool("IsTalking", true);
             dialogueScript.StartDialogue("NPC3");
         }
     }
@@ -37,6 +33,7 @@ dialogueScript.lines[3] = "Une revanche ? Tu oses encore ? Soit. Prépare-toi à
     {
         if (other.CompareTag("Player"))
         {
+            animator.SetBool("IsTalking", false);
             dialogueScript.Start(); 
         }
     }
