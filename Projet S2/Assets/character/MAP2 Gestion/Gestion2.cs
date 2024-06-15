@@ -11,4 +11,6 @@ public static class Gestion2
     public static bool atester = false;
     public static bool boss = false;
     public static bool fini = false;
+    public static string preced = "";
+    public static int tetrisscore = -1;
 }

@@ -9,6 +9,6 @@ public class Labyrinthechoosebutton : MonoBehaviour
     {
         
         // Charger la scène spécifiée
-        SceneManager.LoadScene("labyrinth");
+        SceneManager.LoadScene("Tetris");
     }
 }

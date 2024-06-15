@@ -16,6 +16,8 @@ public class Starting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible =false;
         GestionGeneral.Map2 = true;
         pierre1.color = Color.black;
         pierre2.color = Color.black;
@@ -25,6 +27,9 @@ public class Starting : MonoBehaviour
         anien.SetActive(true);
         if(Gestion2.boss){
             SceneManager.LoadScene("final_boss");
+        }
+        if(Gestion2.tetrisscore>=2000){
+            Gestion2.agagne = true;
         }
     }
 

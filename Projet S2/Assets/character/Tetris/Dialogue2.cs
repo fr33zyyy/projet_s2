@@ -98,12 +98,13 @@ public class Dialogue2 : MonoBehaviour
         {
             gameObject.SetActive(false);
             if(currentNpc == "NPC0"){
+                Gestion2.preced = "map2";
                 Gestion2.ajouetet = true;
-                Debug.Log("Demarage de la partie(défaite)");
+                SceneManager.LoadScene("Tetris");
             }
             if(currentNpc == "NPC1"){
-                Gestion2.agagne = true;
-                Debug.Log("Demarage de la partie(victoire)");
+                Gestion2.preced = "map2";
+                SceneManager.LoadScene("Tetris");
             }
             if(currentNpc == "NPC2"){
                 ancien.SetActive(false);
