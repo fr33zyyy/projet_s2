@@ -87,7 +87,6 @@ public class Dialogue2 : MonoBehaviour
                 lumieren.SetActive(true);
                 AudioSound.instance.ambiance.Stop();
                 AudioSound.instance.night.Play();
-                
             }
             index++;
             AudioSound.instance.PlayClickSound();
