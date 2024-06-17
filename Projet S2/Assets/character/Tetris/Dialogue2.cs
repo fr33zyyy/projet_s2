@@ -99,9 +99,12 @@ public class Dialogue2 : MonoBehaviour
             if(currentNpc == "NPC0"){
                 Gestion2.preced = "map2";
                 Gestion2.ajouetet = true;
+                AudioSound.instance.ambiance.Stop();
                 SceneManager.LoadScene("Tetris");
+                
             }
             if(currentNpc == "NPC1"){
+                AudioSound.instance.ambiance.Stop();
                 Gestion2.preced = "map2";
                 SceneManager.LoadScene("Tetris");
             }

@@ -16,6 +16,7 @@ public class Starting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioSound.instance.ambiance.Play();
         Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible =false;
         GestionGeneral.Map2 = true;

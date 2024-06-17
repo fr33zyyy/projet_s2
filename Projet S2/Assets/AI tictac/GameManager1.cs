@@ -43,6 +43,7 @@ public class GameManager1 : MonoBehaviour
     }
 
     public void UptdateGrid(int ligne, int colonne, string symbol){
+        AudioSound.instance.PlayClickSound();
         if(AIw>=5 || joueurw>=5 ){
             endingpan.SetActive(true);
         }
